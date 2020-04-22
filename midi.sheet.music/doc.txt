@@ -1,0 +1,52 @@
+1. 源码解析
+
+Accid.java : 变音记号枚举;
+AccidSymbol.java :
+AllSongsActivity.java
+BarSymbol.java
+BlankSymbol.java
+ChooseSongActivity.java
+ChordSymbol.java
+Clef.java : 高低音符号枚举
+ClefMeasures.java
+ClefSymbol.java
+ColorChangedListener.java
+ColorDialog.java
+ColorPreference.java
+DictInt.java
+FileBrowserActivity.java
+FileUri.java
+HelpActivity.java
+IconArrayAdapter.java
+KeySignature.java
+ListInt.java
+LyricSymbol.java
+MidiEvent.java
+MidiFile.java
+MidiFileException.java
+MidiFileReader.java
+MidiNote.java
+MidiOptions.java
+MidiPlayer.java
+MidiSheetMusicActivity.java
+MidiTrack.java
+MusicSymbol.java
+NoteData.java
+NoteDuration.java
+NoteScale.java
+Piano.java
+RecentSongsActivity.java
+RestSymbol.java
+ScrollAnimation.java
+ScrollAnimationListener.java
+SettingsActivity.java
+SheetMusic.java
+SheetMusicActivity.java
+Staff.java
+Stem.java
+SymbolWidths.java
+TimeSignature.java
+TimeSigSymbol.java
+WhiteNote.java
+
+https://github.com/han1202012/Android-Quick-Develop/tarball/f6c10f953159861330334dc11e5d83bfd866ab18
