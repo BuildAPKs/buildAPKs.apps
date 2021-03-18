@@ -1,6 +1,6 @@
-#!/bin/env bash # Copyright 2019 (c) all rights reserved 
+#!/usr/bin/env bash 
+# Copyright 2019-2021 (c) all rights reserved 
 # by BuildAPKs https://buildapks.github.io
-# File ~/RDR/conf/README.md has more information about this file.
 #####################################################################
 set -Eeuo pipefail
 shopt -s nullglob globstar
@@ -37,6 +37,7 @@ _AT_ nidhi1608/TipCalculator fedac196588b40c201e2d7dbf1c88ff12562ca3b
 _AT_ phora/AndroPTPB 75a794aba7a59e610b3973682c8a2d3bc77efed1
 _AT_ phora/AndroTSH 5b236d6b35e4203496c6b052d83c27aab4757f0b
 _AT_ pyricau/buloid 01255e347b02f24bef79afdc641dd75aaa4f53b3
+_AT_ retrohacker/CS202-Final-Project a9825c39fb10b54e0bc014d5e145a3c6fb703cd9
 _AT_ rrelmy/BatteryLevel b24f788d64771506db622b9d6f9837be6d78db05
 _AT_ quaap/ComputationalDemonology e0dbcbb5aed90f427bf1a24d5bf9a30520b7b5db
 _AT_ stellaraccident/speakpad dd0ce89e28b5a0a1c8102b0f80b94a925323dec9
