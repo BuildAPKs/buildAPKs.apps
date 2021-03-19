@@ -14,5 +14,5 @@ Android APK app sources that build in [Termux](https://github.com/termux) in Ama
    ~/buildAPKs/build.apps.bash
 
 ```
-To see all the possible APK projects in this git repository, run [` cat ma.bash `](https://raw.githubusercontent.com/BuildAPKs/buildAPKs.apps/master/ma.bash) in the root directory of this repository.   Enjoy!
+To see all the possible APK projects in this git repository, run [` cat ma.bash `](https://raw.githubusercontent.com/BuildAPKs/buildAPKs.apps/master/ma.bash) in the root directory of this repository after cloning.   Enjoy!
 <!--README.md EOF-->
