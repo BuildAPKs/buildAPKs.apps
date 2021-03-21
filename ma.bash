@@ -9,6 +9,7 @@ cd "$JDR"
 # _AT_ username/repository commit
 _AT_ AndroidAalto/BookingRoom 93679e03736f68a2d9416d1d2c9f2e8ae6b71441
 _AT_ AndroidAalto/SoundFuse 972d566b10fa36613327b205dfad34f8c3ab02db
+_AT_ Arjun93/Bongos-Maestro 1ea65240bf6915c6bac5d60effab23e1b190f6e0
 _AT_ Bubu/athg2sms bb644440e228b4edc14a76fd9963ed5fa6f6883b
 _AT_ adriangl/metromadrid-android bfbb78970ecc1a44519af00fd984c96bdb20540c
 _AT_ afairley/Tesla-Table 9b64cbb7687dde663690c2c2c7621d2175c9429a
