@@ -1,7 +1,7 @@
 # [buildAPKs.apps](https://github.com/BuildAPKs/buildAPKs.apps)
 Android APK app sources that build in [Termux](https://github.com/termux) in Amazon, Android and Chrome. 
 
-[This repository](https://github.com/BuildAPKs/buildAPKs.apps) is a submodule for [buildAPKs](https://github.com/BuildAPKs/buildAPKs).  In order to install it in its' proper place to attempt to make these applications on smartphone, smartTV, tablet and wearable, copy and paste the following into [Termux](https://github.com/termux):
+[This repository](https://github.com/BuildAPKs/buildAPKs.apps) is a submodule for [buildAPKs](https://github.com/BuildAPKs/buildAPKs).  In order to install it in its' proper place to attempt to make these applications on smartphone, smartTV, tablet and wearable, copy and paste the following into [Termux](https://github.com/termux) on Android:
 
 ```
 
