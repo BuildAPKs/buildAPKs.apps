@@ -29,6 +29,7 @@ _AT_ ar-/sendreduced 2d7498493ad044abd206f7f40f1cc97f5768dfe8
 _AT_ axxapy/android.tools.app-ops 00c4bb13569e63c1c3a02f28894285d355290b64
 _AT_ badel2/termux-api dd22e5a8da02526ed5c965206952c24d79ac49a2
 # _AT_ billthefarmer/accordion b7959df0da6af4202e40c3de527b55d19efc2e0a
+_AT_ CyanBlue/TipCalculator d9b67cabc39df37f3021b7c706c9126274133762
 _AT_ citizenterminal/android-palindrome-tipper 3ef1f6434b399b1b6ae69d6604b6aec247313d0c
 _AT_ google/ringdroid 955039d67252ea7aea5a36933e8ee30110f5ec92
 _AT_ helloworld1/BurnInDaydream e6c3013a4534b8c4da2d6948f1abbf16db1cd0fd
