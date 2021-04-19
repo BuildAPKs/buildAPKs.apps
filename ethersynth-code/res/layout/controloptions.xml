@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Etheric Synthesizer, a theremin synthesizer for Android mobile devices
+	Copyright (C) 2016 Nutchanon Wetchasit
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	>
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Frequency Scale"
+			style="@android:style/TextAppearance.Large"
+			/>
+		<TableLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<TableRow>
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_span="2"
+					android:layout_weight="1"
+					android:text="Highest frequency:"
+					/>
+			</TableRow>
+			<TableRow
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				>
+				<EditText android:id="@+id/highfreq"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:inputType="numberDecimal"
+					/>
+				<Spinner android:id="@+id/highfreqspn"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:visibility="gone"
+					/>
+				<Spinner android:id="@+id/highfrequnit"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					/>
+			</TableRow>
+			<TableRow>
+				<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_span="2"
+					android:layout_weight="1"
+					android:text="Lowest frequency:"
+					/>
+			</TableRow>
+			<TableRow
+				android:orientation="horizontal"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				>
+				<EditText android:id="@+id/lowfreq"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:inputType="numberDecimal"
+					/>
+				<Spinner android:id="@+id/lowfreqspn"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:visibility="gone"
+					/>
+				<Spinner android:id="@+id/lowfrequnit"
+					android:layout_width="wrap_content"
+					android:layout_height="fill_parent"
+					/>
+			</TableRow>
+		</TableLayout>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Restore defaults"
+			android:onClick="restoreDefault"
+		/>
+		
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Display"
+			style="@android:style/TextAppearance.Large"
+			android:paddingTop="10sp"
+			/>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<CheckBox android:id="@+id/showbackground"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:text="Show background color"
+				android:gravity="center_vertical"
+				/>
+		</LinearLayout>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<CheckBox android:id="@+id/showtouchpoint"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:text="Show touch location"
+				android:gravity="center_vertical"
+				/>
+		</LinearLayout>
+		
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Controls"
+			style="@android:style/TextAppearance.Large"
+			android:paddingTop="10sp"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Lock screen orientation:"
+			/>
+		<Spinner android:id="@+id/lockorientation"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Control axes:"
+			/>
+		<Spinner android:id="@+id/controlaxes"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			/>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<CheckBox android:id="@+id/invertfreqctrl"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:text="Invert frequency control"
+				android:gravity="center_vertical"
+				/>
+		</LinearLayout>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<CheckBox android:id="@+id/invertampctrl"
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="fill_parent"
+				android:text="Invert amplitude control"
+				android:gravity="center_vertical"
+				/>
+		</LinearLayout>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Dead zone size:"
+			/>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<SeekBar android:id="@+id/deadzone"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:paddingLeft="8sp"
+				android:paddingRight="8sp"
+				android:max="100"
+				android:progress="0"
+				/>
+			<TextView android:id="@+id/deadzonedsp"
+				android:layout_width="45sp"
+				android:layout_height="fill_parent"
+				android:text="100%"
+				android:gravity="center"
+				/>
+		</LinearLayout>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Saturation zone size:"
+			/>
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			>
+			<SeekBar android:id="@+id/satzone"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:paddingLeft="8sp"
+				android:paddingRight="8sp"
+				android:max="100"
+				android:progress="0"
+			/>
+			<TextView android:id="@+id/satzonedsp"
+				android:layout_width="45sp"
+				android:layout_height="fill_parent"
+				android:text="100%"
+				android:gravity="center"
+				/>
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>

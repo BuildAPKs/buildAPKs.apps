@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Etheric Synthesizer, a theremin synthesizer for Android mobile devices
+	Copyright (C) 2016 Nutchanon Wetchasit
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	>
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Aid performance:"
+			/>
+		<Button
+			android:id="@+id/recordbutton"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Start Recording"
+			android:gravity="left|center_vertical"
+			android:onClick="toggleRecording"
+			/>
+		<TextView
+			android:id="@+id/recordstatus"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="No recording is in progress."
+			android:enabled="false"
+			android:paddingLeft="15sp"
+			/>
+		
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Tweak the synthesizer:"
+			android:paddingTop="10sp"
+			/>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Display and Control Options"
+			android:gravity="left|center_vertical"
+			android:onClick="showControlOptions"
+			/>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Output Options"
+			android:gravity="left|center_vertical"
+			android:onClick="showOutputOptions"
+			/>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Recording Options"
+			android:gravity="left|center_vertical"
+			android:onClick="showRecordingOptions"
+			/>
+		
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Find additional information:"
+			android:paddingTop="10sp"
+			/>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Help"
+			android:gravity="left|center_vertical"
+			android:onClick="showHelp"
+			/>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="About Etheric Synthesizer"
+			android:gravity="left|center_vertical"
+			android:onClick="showAbout"
+			/>
+	</LinearLayout>
+</ScrollView>

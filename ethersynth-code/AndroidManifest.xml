@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Etheric Synthesizer, a theremin synthesizer for Android mobile devices
+	Copyright (C) 2016 Nutchanon Wetchasit
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="net.sf.ethersynth"
+	android:versionCode="200"
+	android:versionName="0.2.0">
+	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="23" />
+	<application android:label="Etheric Synthesizer"
+		android:name="EtherSynthApplication"
+		android:icon="@drawable/icon"
+		android:debuggable="true">
+		<activity android:name="EtherSynthActivity"
+			android:label="Etheric Synthesizer"
+			android:launchMode="singleTop"
+			android:configChanges="orientation|keyboard|keyboardHidden|orientation"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name="OptionsActivity"
+			android:label="Options" />
+		<activity android:name="ControlOptionsActivity"
+			android:label="Display and Control Options" />
+		<activity android:name="OutputOptionsActivity"
+			android:label="Output Options" />
+		<activity android:name="RecordingOptionsActivity"
+			android:label="Recording Options" />
+		<activity android:name="HelpActivity"
+			android:label="Help" />
+		<activity android:name="AboutActivity"
+			android:label="About Etheric Synthesizer" />
+		<activity android:name="LicenseActivity"
+			android:label="GNU General Public License" />
+	</application>
+	<supports-screens android:largeScreens="true" android:xlargeScreens="true" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>

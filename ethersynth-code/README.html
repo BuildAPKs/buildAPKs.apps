@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+	<meta name="viewport" content="initial-scale=1">
+	<meta name="author" content="Nutchanon Wetchasit">
+	<title>Etheric Synthesizer</title>
+</head>
+<body>
+	<h1>Etheric Synthesizer</h1>
+	<em>Theremin synthesizer for Android devices</em>
+	<p>
+		<strong>Etheric Synthesizer</strong> (<strong>EtherSynth</strong>) is a
+		<a href="http://en.wikipedia.org/wiki/Theremin">theremin</a>-like synthesizer
+		application for Android-based mobile devices. It allows user to play
+		otherworldly theremin-like melody on mobile phone or tablet by
+		swiping their finger on the screen. However, it is not aimed at
+		realistically immitating a real theremin as it only uses
+		a single finger to play.
+	</p>
+	<p>
+		Features could be summarized as follows:
+	</p>
+	<ul>
+		<li>Play tones with single finger.
+		<li>Colored gradient background guide (can be turned off).
+		<li>Visible touch indicator (can be turned off).
+		<li>Configurable frequency range.
+		<li>Configurable control axes orientation, locking, and inversion.
+		<li>Configurable control dead zone and saturation zone.
+		<li>Configurable output waveform: sine, triangle, sawtooth, and square.
+		<li>Configurable output audio resolution.
+		<li>Performance could be recorded in <a href="http://en.wikipedia.org/wiki/Waveform_Audio_File_Format">WAVE format</a>.
+	</ul>
+	<p>
+		Project website: <a href="http://ethersynth.sourceforge.net/">http://ethersynth.sourceforge.net/</a>
+	</p>
+	
+	<h3>Contents</h3>
+	<ul>
+		<li><a href="#requirement">1. System Requirement</a>
+		<li><a href="#compile">2. Compiling</a>
+		<li><a href="#install">3. Installing</a>
+		<li><a href="#quickstart">4. Quick Start</a>
+		<li><a href="#author">5. Author</a>
+	</ul>
+	
+	<h2><a name="requirement"></a>1. System Requirement</h2>
+	<p>
+		Etheric Synthesizer is written to run on Android version 2.0 onward
+		(though recommended version is 2.3 or later), with no limitation
+		on hardware platform as no native software library is used.
+		On running, it requires only SD Card access permission which is used
+		in recording function.
+	</p>
+	<p>
+		For building Etheric Synthesizer from source code,
+		<a href="http://developer.android.com/sdk/">Android SDK</a>
+		or <a href="http://redmine.replicant.us/projects/replicant/wiki/SDK">Replicant SDK</a>
+		is required. Version of the SDK is irrelevant, but support files for
+		building Android 2.3 application must be installed. Please note
+		that <a href="http://developer.android.com/sdk/older_releases.html">legacy SDKs</a>
+		cannot be used as they only support up to Android version 1.6.
+		Also, Etheric Synthesizer uses a standard <a href="http://ant.apache.org/">Apache Ant</a>
+		build system, so you would need to have it installed too
+		(tested with Ant version 1.8.3).
+	</p>
+	
+	<h2><a name="compile"></a>2. Compiling</h2>
+	<p>
+		Assuming your Android build tools and Ant are accessible from command line,
+		before starting, you would need to reconfigure project's build file
+		by running following command in source directory:
+	</p>
+	<p>
+		<code>android update project -p .</code>
+	</p>
+	<p>
+		Then you can build Etheric Synthesizer by using following command:
+	</p>
+	<p>
+		<code>ant debug</code>
+	</p>
+	<p>
+		Once the process is completed, you will see an APK file
+		<q><code>EtherSynth-debug.apk</code></q> inside
+		project's <q><code>bin</code></q> directory, which you can
+		copy it to your device and install.
+	</p>
+	<p>
+		If you plan to distribute Etheric Synthesizer APK, you might be better
+		off using <q><code>ant release</code></q> command instead of
+		<q><code>ant debug</code></q>, but you will need an
+		APK signing key ready at hand to do this; or your Android device
+		would refuse to install the result APK due to the lack of digital
+		signature.
+	</p>
+	
+	<h2><a name="install"></a>3. Installing</h2>
+	<p>
+		Etheric Synthesizer's installation process is the same as a regular
+		Android application.
+	</p>
+	<ul>
+		<li>
+			You can copy the APK file to your device and click it in
+			file manager to install.
+		</li>
+		<li>
+			Or if you connected your Android device to your machine via USB
+			and appropriate Android Debug Bridge driver is installed,
+			you can just run <q><code>ant installd</code></q> in source
+			directory too.
+		</li>
+	</ul>
+	<p>
+		<strong>Important:</strong> Since Etheric Synthesizer is not from Google Play store,
+		you will need to enable <q>Install from Unknown Sources</q> option
+		in your device's Applications settings before you install it
+		(<em>Settings &gt; Applications &gt; Unknown Sources</em>).
+	</p>
+	
+	<h2><a name="quickstart"></a>4. Quick Start</h2>
+	<p>
+		Using Etheric Synthesizer is quite straightforward. In default configuration,
+		once you started it, you will be presented with a rainbow stripe
+		gradient screen, which you can:
+	</p>
+	<ul>
+		<li>Touch the screen to play tone.
+		<li>Move finger toward purple color to play higher note.
+		<li>Move finger toward red color to play lower note.
+		<li>Move finger toward bright area to increase volume.
+		<li>Move finger toward dark area to decrease volume.
+		<li>Press menu button to start recording, configure controls, or read this help again.
+		<li>Press back button to exit.
+	</ul>
+	<p>
+		Once you pressed menu button, you will be presented with an options menu
+		which you could:
+	</p>
+	<ul>
+		<li>Start/stop performance recording.
+		<li>Configure control axes, note range and display options.
+		<li>Configure audio output waveform and resolution.
+		<li>Configure recording output location and filename prompt.
+		<li>Show brief help.
+		<li>Check Etheric Synthesizer's release and legal information.
+		<li>Press back button to return to main screen.
+	</ul>
+	<p>
+		Please note that if you used record function, recorded files will be
+		placed in <q><code>Music</code></q> subdirectory of your phone's
+		storage directory by default. But if you're using Android version
+		earlier than 2.2, the default will be your phone's storage directory.
+		This location could be configured in the corresponding recording options
+		screen.
+	</p>
+	
+	<h2><a name="author"></a>5. Author</h2>
+	<p>
+		Etheric Synthesizer is written by Nutchanon Wetchasit<br>
+		Released as <a href="http://www.gnu.org/philosophy/free-sw.html">Free Software</a>
+		under GNU Gneral Public License (version 3 or later).
+	</p>
+	<p>
+		For legal information, see <a href="LICENSE.html">LICENSE.html</a>
+		and <a href="COPYING.html">COPYING.html</a>. Icon files are also
+		available in other licenses, see <a href="LICENSE.ICO.html">LICENSE.ICO.html</a>.
+	</p>
+</body>
+</html>

@@ -1,0 +1,8 @@
+All events are in reverse chronological order.
+
+Etheric Synthesizer 0.2.0 release (next release)
+- Options screen is now showing elasped time during recording.
+- Clicks heard when rapidly moving finger from dead zone to saturation zone
+  are now eliminated.
+
+Etheric Synthesizer 0.1.0 release (first release, 25-Sep-2016)

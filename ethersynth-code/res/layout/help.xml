@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Etheric Synthesizer, a theremin synthesizer for Android mobile devices
+	Copyright (C) 2016 Nutchanon Wetchasit
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	>
+	<TableLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:stretchColumns="1"
+		android:shrinkColumns="1"
+		>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Touch the screen to play tone."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Move finger toward purple color to play higher note."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Move finger toward red color to play lower note."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Move finger toward bright area to increase volume."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Move finger toward dark area to decrease volume."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Press menu button to start recording, configure controls, or read this help again."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+		<TableRow>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="&#8226;"
+				android:layout_marginLeft="3sp"
+				android:layout_marginRight="3sp"
+				android:layout_marginTop="10sp"
+				/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Press back button to exit."
+				android:layout_marginTop="10sp"
+				/>
+		</TableRow>
+	</TableLayout>
+</ScrollView>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Etheric Synthesizer, a theremin synthesizer for Android mobile devices
+	Copyright (C) 2017 Nutchanon Wetchasit
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	>
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		>
+		<ImageView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/logo"
+			android:layout_marginTop="10sp"
+			/>
+		<TextView android:id="@+id/progidentifier"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Etheric Synthesizer"
+			android:gravity="center"
+			style="@android:style/TextAppearance.Large"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Theremin synthersizer for Android mobile devices"
+			android:gravity="center"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="http://ethersynth.sourceforge.net/"
+			android:gravity="center"
+			android:layout_marginBottom="20sp"
+			android:autoLink="web"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Copyright (C) 2017 Nutchanon Wetchasit"
+			android:layout_marginBottom="10sp"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version."
+			android:layout_marginBottom="10sp"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details."
+			android:layout_marginBottom="10sp"
+			/>
+		<Button
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="Read GNU General Public License"
+			android:onClick="showLicense"
+			/>
+	</LinearLayout>
+</ScrollView>
