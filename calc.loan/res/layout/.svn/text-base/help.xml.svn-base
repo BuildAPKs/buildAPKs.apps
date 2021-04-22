@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical" android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+	<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent">
+    	<LinearLayout android:orientation="vertical"  android:layout_width="fill_parent"  android:layout_height="wrap_content" android:padding="10px">
+    	
+    	
+    	  <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/annuityTitleHelp"  
+    	  android:textStyle="bold" android:textColor="@color/result"/>
+          <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/annuityHelp" android:paddingBottom="10px"/>
+          
+          
+          <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/diffTitleHelp"  
+          android:textStyle="bold" android:textColor="@color/result"/>
+          <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/diffHelp" android:paddingBottom="10px"/>
+          
+          
+          <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/fixedTitleHelp"  
+          android:textStyle="bold" android:textColor="@color/result"/>
+          <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/fixedHelp" android:paddingBottom="10px"/>
+          
+                  
+          <Button android:id="@+id/typeHelpCloseButton" android:text="@string/close" android:layout_height="wrap_content"  android:layout_width="fill_parent" />
+    	</LinearLayout>
+    </ScrollView>
+</LinearLayout>
+  
+

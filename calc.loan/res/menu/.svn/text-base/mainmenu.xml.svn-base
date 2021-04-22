@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ <item android:id="@+id/addToCompareMenu" android:title="@string/addToCompare" android:icon="@drawable/add" />
+ <item android:id="@+id/viewCompareMenu" android:title="@string/viewCompare"  android:icon="@drawable/compare"/>
+ <item android:id="@+id/exportEmailMenu" android:title="@string/exportToEmail"  android:icon="@drawable/mail"/>
+ <item android:id="@+id/exportExcelMenu" android:title="@string/exportToExcel"  android:icon="@drawable/excel"/>
+ <item android:id="@+id/clean" android:title="@string/clean"  android:icon="@drawable/clean"/>
+ <item android:id="@+id/donateMenu" android:title="@string/donate"  android:icon="@drawable/paypal"/>
+</menu>

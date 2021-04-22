@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:background="@drawable/background">
+    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="*">
+        <TableRow android:layout_width="fill_parent">
+            <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="5px">
+                    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/type" android:textStyle="normal" />
+                    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="0">
+                        <TableRow android:layout_width="fill_parent">
+                            <Spinner android:id="@+id/loanTypeSpinner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:entries="@array/types"></Spinner>
+                            <Button android:id="@+id/loanTypeHelpButton" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                        </TableRow>
+                    </TableLayout>
+                    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/amount" android:textStyle="normal" />
+                    <EditText android:id="@+id/amountEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="phone" android:hint="@string/amountHint" />
+                    <TextView android:text="@string/interest" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="normal" />
+                    <TableLayout android:layout_width="fill_parent"
+                                 android:layout_height="wrap_content"
+                                 android:stretchColumns="0">
+                        <TableRow android:layout_width="fill_parent">
+                            <EditText android:id="@+id/interestEdit"
+                                      android:layout_width="fill_parent"
+                                      android:layout_height="wrap_content"
+
+                                      android:inputType="phone"
+                                      android:hint="@string/interestHint"/>
+                            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/effectiveRateBtn" android:id="@+id/effectiveRateBtn" />
+                        </TableRow>
+                    </TableLayout>
+                    <TextView android:id="@+id/periodLabel" android:text="@string/period" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="normal" />
+                    <TableLayout android:id="@+id/periodLayout"
+                                 android:layout_span="2"
+                                 android:stretchColumns="*"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:background="@layout/periodblock">
+                        <TableRow>
+                            <LinearLayout android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:orientation="vertical">
+                                <View android:layout_width="fill_parent"
+                                      android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                            <LinearLayout android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:orientation="vertical">
+                                <TextView android:text="@string/periodTypeYear"
+                                          android:gravity="center"
+                                          android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:textColor="@color/result"/>
+                                <TableLayout android:layout_span="5"
+                                             android:stretchColumns="*"
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content">
+                                    <TableRow>
+                                        <Button android:id="@+id/periodYearMinusButton"
+                                                android:text="  -  "
+                                                android:textStyle="bold"
+                                                android:layout_width="30sp"
+                                                android:layout_height="40dip"
+                                                android:background="@drawable/period_minus_button"/>
+                                        <EditText android:id="@+id/periodYearEdit"
+                                                  android:text="0"
+                                                  android:layout_width="30sp"
+                                                  android:layout_height="40dip"
+                                                  android:background="@drawable/period_value"
+                                                  android:inputType="phone"
+                                                  android:gravity="center"
+                                                  android:layout_marginTop="1dip"
+                                                />
+                                        <Button android:id="@+id/periodYearPlusButton"
+                                                android:text="  +  "
+                                                android:textStyle="bold"
+                                                android:layout_width="30sp"
+                                                android:layout_height="40dip"
+                                                android:background="@drawable/period_pluss_button"/>
+                                    </TableRow>
+                                </TableLayout>
+                            </LinearLayout>
+                            <LinearLayout android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:orientation="vertical">
+                                <View android:layout_width="fill_parent"
+                                      android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                            <LinearLayout android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:orientation="vertical">
+                                <TextView android:text="@string/periodTypeMonth"
+                                          android:gravity="center"
+                                          android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:textColor="@color/result"/>
+                                <TableLayout android:layout_span="5"
+                                             android:stretchColumns="*"
+                                             android:layout_width="wrap_content"
+                                             android:layout_height="wrap_content">
+                                    <TableRow>
+                                        <Button android:id="@+id/periodMonthMinusButton"
+                                                android:text="  -  "
+                                                android:textStyle="bold"
+                                                android:layout_width="30sp"
+                                                android:layout_height="40dip"
+                                                android:background="@drawable/period_minus_button"/>
+                                        <EditText android:id="@+id/periodMonthEdit"
+                                                  android:text="0"
+                                                  android:layout_width="30sp"
+                                                  android:layout_height="40dip"
+                                                  android:background="@drawable/period_value"
+                                                  android:inputType="phone"
+                                                  android:gravity="center"
+                                                  android:layout_marginTop="1dip"/>
+                                        <Button android:id="@+id/periodMonthPlusButton"
+                                                android:text="  +  "
+                                                android:textStyle="bold"
+                                                android:layout_width="30sp"
+                                                android:layout_height="40dip"
+                                                android:background="@drawable/period_pluss_button"/>
+                                    </TableRow>
+                                </TableLayout>
+                            </LinearLayout>
+                            <LinearLayout android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+                                          android:orientation="vertical">
+                                <View android:layout_width="fill_parent"
+                                      android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </TableRow>
+                    </TableLayout>
+                    <TextView android:id="@+id/fixedPaymentLabel" android:text="@string/fixedPayment" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="normal" />
+                    <EditText android:id="@+id/fixedPaymentEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:visibility="gone" android:inputType="phone" />
+                    <View android:layout_width="fill_parent" android:layout_height="7dip" />
+                    <!--Advanced-->
+                    <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="0">
+                        <TableRow android:layout_width="fill_parent" android:gravity="center_vertical">
+                            <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="#555555" />
+                            <TextView android:id="@+id/moreText" android:text="@string/expand" android:background="@drawable/advanced_button_background" android:textColor="@color/buttonText" android:padding="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:clickable="true" />
+                        </TableRow>
+                    </TableLayout>
+                    <LinearLayout android:id="@+id/advancedViewGroup" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:visibility="gone">
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/downPayment" android:textStyle="normal" />
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/downPaymentHint" android:textStyle="italic" />
+                        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="0">
+                            <TableRow android:layout_width="fill_parent">
+                                <EditText android:id="@+id/downPaymentEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="phone" android:hint="@string/valuePercentHint" />
+                                <ee.smkv.calc.loan.PercentValueSwitchButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:id="@+id/downPaymentButton" />
+                            </TableRow>
+                        </TableLayout>
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/disposableCommission" android:textStyle="normal" />
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/disposableCommissionHint" android:textStyle="italic" />
+                        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="0">
+                            <TableRow android:layout_width="fill_parent">
+                                <EditText android:id="@+id/disposableCommissionEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="phone" android:hint="@string/valuePercentHint" />
+                                <ee.smkv.calc.loan.PercentValueSwitchButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" percent="false" android:id="@+id/disposableCommissionButton" />
+                            </TableRow>
+                        </TableLayout>
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/monthlyCommission" android:textStyle="normal" />
+                        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/monthlyCommissionHint" android:textStyle="italic" />
+                        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:stretchColumns="0">
+                            <TableRow android:layout_width="fill_parent">
+                                <EditText android:id="@+id/monthlyCommissionEdit" android:layout_width="fill_parent" android:layout_height="wrap_content" android:inputType="phone" android:hint="@string/valuePercentHint" />
+                                <ee.smkv.calc.loan.PercentValueSwitchButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" percent="false" android:id="@+id/monthlyCommissionButton" />
+                            </TableRow>
+                        </TableLayout>
+                        <TextView android:layout_width="fill_parent"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/residue"
+                                  android:textStyle="normal"/>
+                        <TextView android:layout_width="fill_parent"
+                                  android:layout_height="wrap_content"
+                                  android:text="@string/residueHint"
+                                  android:textStyle="italic"/>
+                        <TableLayout android:layout_width="fill_parent"
+                                     android:layout_height="wrap_content"
+                                     android:stretchColumns="0">
+                            <TableRow android:layout_width="fill_parent">
+                                <EditText android:id="@+id/residueEdit"
+                                          android:layout_width="fill_parent"
+                                          android:layout_height="wrap_content"
+
+                                          android:inputType="phone"
+                                          android:hint="@string/valuePercentHint"/>
+                                <ee.smkv.calc.loan.PercentValueSwitchButton android:layout_width="wrap_content"
+                                                                            android:layout_height="wrap_content"
+                                                                            android:text="" percent="false"
+                                                                            android:id="@+id/residueButton"/>
+                            </TableRow>
+                        </TableLayout>
+                    </LinearLayout>
+                    <View android:layout_width="fill_parent" android:layout_height="7dip"></View>
+                    <!--Advanced END-->
+                </LinearLayout>
+            </ScrollView>
+            <ScrollView android:id="@+id/mainScrollView" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="5px">
+                    <TableLayout android:layout_span="5" android:stretchColumns="*" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                        <TableRow>
+                            <Button android:id="@+id/calculateButton" android:text="@string/calc" android:textStyle="bold" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                            <Button android:text="@string/schedule" android:id="@+id/scheduleButton" android:enabled="false" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        </TableRow>
+                    </TableLayout>
+                    <LinearLayout android:id="@+id/resultContainer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@layout/roundedshape" android:padding="5px" android:layout_margin="3px">
+                        <TextView android:text="@string/MonthlyAmountLbl" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textColor="@color/text" />
+                        <TextView android:id="@+id/resultMonthlyPaymentText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0.00" android:gravity="right" android:textSize="20px"
+                                  android:paddingRight="10px" android:paddingBottom="5px" android:textColor="@color/result" />
+                        <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="@color/border" />
+                        <TextView android:text="@string/IterestTotalLbl" android:textColor="@color/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        <TextView android:id="@+id/resultIterestTotalText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0.00" android:gravity="right" android:textSize="20px"
+                                  android:paddingRight="10px" android:paddingBottom="5px" android:textColor="@color/result" />
+                        <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="@color/border" />
+                        <LinearLayout android:id="@+id/resultDownPaymentGroupView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:visibility="gone" android:orientation="vertical">
+                            <TextView android:text="@string/donPaymentTotalLabel" android:textColor="@color/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                            <TextView android:id="@+id/resultDownPaymentTotalText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0.00" android:gravity="right" android:textSize="20px"
+                                      android:paddingRight="10px" android:paddingBottom="5px" android:textColor="@color/result" />
+                            <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="@color/border" />
+                        </LinearLayout>
+                        <LinearLayout android:id="@+id/resultCommissionsGroupView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:visibility="gone" android:orientation="vertical">
+                            <TextView android:text="@string/commissionTotalLabel" android:textColor="@color/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                            <TextView android:id="@+id/resultCommissionsTotalText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0.00" android:gravity="right" android:textSize="20px"
+                                      android:paddingRight="10px" android:paddingBottom="5px" android:textColor="@color/result" />
+                            <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="@color/border" />
+                        </LinearLayout>
+                        <TextView android:text="@string/effectiveInterestLbl" android:textColor="@color/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        <TextView android:id="@+id/effectiveInterestText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0.00" android:gravity="right" android:textSize="20px" android:paddingRight="10px"
+                                  android:paddingBottom="5px" android:textColor="@color/result" />
+                        <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="@color/border" />
+                        <TextView android:text="@string/AmountTotalLbl" android:textColor="@color/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        <TextView android:id="@+id/resultAmountTotalText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0.00" android:gravity="right" android:textSize="20px" android:paddingRight="10px"
+                                  android:paddingBottom="5px" android:textColor="@color/result" />
+                        <View android:layout_width="fill_parent" android:layout_height="1dip" android:background="@color/border" />
+                        <TextView android:text="@string/paymentsCount" android:textColor="@color/text" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        <TextView android:id="@+id/resultPeriodTotalText" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textStyle="bold" android:text="0" android:gravity="right" android:textSize="20px" android:paddingRight="10px"
+                                  android:textColor="@color/result" />
+                    </LinearLayout>
+                    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:textColor="@color/result" android:textSize="12sp" android:text="Developed by Andrei Samkov ©2011" android:gravity="right" android:paddingRight="7dp" />
+                </LinearLayout>
+            </ScrollView>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

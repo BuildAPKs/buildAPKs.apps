@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculadora Simple de Prestamos</string>
+    <string name="app_desc">La calculadora para calculo de cuotas, pagos fijos o diferenciados.</string>
+    <string name="amount">Capital de prestamo</string>
+    <string name="amountHint">Capital &gt; 0</string>
+    <string name="interest">Tasa interes anual, %</string>
+    <string name="interestHint">Tasa &gt; 0</string>
+    <string name="period">Periodo</string>
+
+    <string name="calc">Calcular</string>
+    <string name="MonthlyAmountLbl">Pago mensual</string>
+    <string name="IterestTotalLbl">Total intereses</string>
+    <string name="AmountTotalLbl">Total pagos (capital + intereses)</string>
+    <string name="errorAmount">Favor ingresar capital correcto</string>
+    <string name="errorFixedAmount">Favor ingresar amortizacion fija mensual</string>
+    <string name="errorInterest">Favor ingresar tasa interes anual correcta</string>
+    <string name="errorPeriod">Favor ingresar periodo correcto</string>
+    <string name="type">Tipo de prestamo</string>
+
+    <string-array name="types">
+        <item>Amortizacion fija</item>
+        <item>Cuotas diferenciadas</item>
+        <item>Cuotas fijas</item>
+    </string-array>
+
+    <string-array name="shorttypes">
+        <item>Amortizacion fija</item>
+        <item>Diferenciadas</item>
+
+        <item>Fija</item>
+    </string-array>
+    <string name="fixedPayment">Amortizacion fija</string>
+    <string name="paymentsCount">Numero de pagos</string>
+    <string name="schedule">Cronograma</string>
+    <string name="paymentNr">Nr</string>
+    <string name="paymentBalance">Balance</string>
+    <string name="paymentPrincipal">Capital</string>
+    <string name="paymentInterest">Intereses</string>
+
+    <string name="paymentCommission">Comision</string>
+    <string name="paymentTotal">Pagos</string>
+    <string name="close">Cerrar</string>
+    <string name="scheduleTitle">Cronograma de pagos</string>
+    <string name="typeHelpLbl">Ayuda</string>
+    <string name="annuityTitleHelp">Amortizacion fija</string>
+    <string name="diffTitleHelp">Cuotas diferenciadas</string>
+    <string name="fixedTitleHelp">Cuotas fijas</string>
+    <string name="annuityHelp">- equivale a la suma de los pagos mensuales, que incluye capital mas intereses.
+
+    </string>
+    <string name="diffHelp">- es el pago mensual por el prestamo, se reduce hacia el final del prestamo y consiste en el
+        pago realizado al principal y los intereses del saldo de capital pendient de pago.
+    </string>
+    <string name="fixedHelp">- una amorizacion fija mensual aplicada al principal mas los intereses correspondientes al
+        saldo de capital del prestamo.
+    </string>
+    <string name="chartTitle">Grafica del prestamo(beta)</string>
+    <string name="chartButton">Grafica</string>
+
+    <string name="compareTitle">Comparacion de prestamos</string>
+    <string name="compareCleanLbl">Borrar todo</string>
+    <string name="compareTypeLbl">Tipo prestamo:</string>
+    <string name="compareAmountLbl">Capital:</string>
+
+    <string name="compareInterestLbl">Interes, %:</string>
+    <string name="comparePeriodLbl">Periodo, m:</string>
+    <string name="comparePaymentMaxLbl">Pago (max):</string>
+    <string name="comparePaymentMinLbl">Pago (min):</string>
+    <string name="compareInterestTotalLbl">Intereses:</string>
+    <string name="compareAmountTotalLbl">Total:</string>
+
+    <string name="addToCompare">Agregar a comparacion</string>
+    <string name="viewCompare">Lista a comparar</string>
+
+    <string name="exportToEmail">Exportar a correo</string>
+    <string name="exportToExcel">Exportar a Excel</string>
+
+
+    <string name="scheduleLoading">Cargando cronograma de pagos, favor esperar....</string>
+    <string name="chartAmount">Capital</string>
+    <string name="chartInterest">Interes</string>
+    <string name="chartTotal">Total</string>
+    <string name="sendEmail">Enviar Correo</string>
+    <string name="fileCreated">Nombre del archivo a exportar</string>
+
+    <string name="periodTypeYear">Año</string>
+    <string name="periodTypeMonth">Mes</string>
+
+    <string name="msgCalculated">Calculo exitoso</string>
+
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="recalculateLoanQuestion">Desea recalcular el prestamo?</string>
+
+    <string name="tabSchedule">Cronograma</string>
+
+    <string name="tabChart">Graficas</string>
+
+    <string name="expand">Avanzado...</string>
+    <string name="hide">Ocultar</string>
+    <string name="downPayment">Cuota inicial</string>
+    <string name="donPaymentTotalLabel">Cuota inicial</string>
+    <string name="disposableCommission">Comision ingreso</string>
+    <string name="monthlyCommission">Comision mensual</string>
+    <string name="commissionTotalLabel">Total comisiones</string>
+
+    <string name="downPaymentHint">(Valor o porcentaje del total del prestamo)</string>
+    <string name="disposableCommissionHint">(Valor o porcentaje del total del prestamo)</string>
+    <string name="monthlyCommissionHint">(Valor o porcentaje del total del prestamo)</string>
+
+    <string name="valuePercentHint">valor o porcentaje</string>
+
+    <string name="errorDownPayment">favor de ingresar una cuota inicial valida o deje vacio</string>
+    <string name="errorDispCommission">favor de ingresar una comision de ingreso valida o deje vacio</string>
+    <string name="errorMonthlyCommission">Favor de ingresar una comision mensual valida o deje vacio</string>
+
+    <string name="donate">Haga una donacion</string>
+    <string name="effectiveInterestLbl">Tasa efectiva,%</string>
+    <string name="effectiveInterestCompareLbl">Tasa efectiva ,%</string>
+    <string name="effectiveRateBtn">Eff.</string>
+    <string name="eff2NominalConvTitle">Ingrese tasa efectiva</string>
+    <string name="eff2NominalConvMessage">Calculo de tasa de intereses nominal en base a tasa de intereses efectiva. (El
+        calculo ignora cuotas iniciales y comisiones)
+    </string>
+
+    <string name="residue">Último pago (pago residual)</string>
+
+
+</resources>
+

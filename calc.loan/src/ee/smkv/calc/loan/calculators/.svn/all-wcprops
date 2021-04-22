@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/151/branches/3.3/src/ee/smkv/calc/loan/calculators
+END
+AbstractCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/151/branches/3.3/src/ee/smkv/calc/loan/calculators/AbstractCalculator.java
+END
+AnnuityCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/151/branches/3.3/src/ee/smkv/calc/loan/calculators/AnnuityCalculator.java
+END
+DifferentiatedCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/151/branches/3.3/src/ee/smkv/calc/loan/calculators/DifferentiatedCalculator.java
+END
+FixedPaymentCalculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/151/branches/3.3/src/ee/smkv/calc/loan/calculators/FixedPaymentCalculator.java
+END
+Calculator.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/151/branches/3.3/src/ee/smkv/calc/loan/calculators/Calculator.java
+END

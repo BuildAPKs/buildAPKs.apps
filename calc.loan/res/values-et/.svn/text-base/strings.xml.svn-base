@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lihtne Laenukalkulaator</string>
+    <string name="app_desc">Lihtne leanukalkulaator annuiteet, fikseeritud ja määratud makse (EGO , MAGNET).</string>
+    <string name="amount">Laenusumma</string>
+    <string name="amountHint">summa &gt; 0</string>
+    <string name="interest">Aastaintress, %</string>
+    <string name="interestHint">intress &gt; 0</string>
+    <string name="period">Periood</string>
+    <string name="calc">Arvuta</string>
+    <string name="MonthlyAmountLbl">Kuumakse</string>
+    <string name="IterestTotalLbl">Intressid kokku</string>
+    <string name="AmountTotalLbl">Maksed kokku (summa + intress)</string>
+    <string name="errorAmount">Sisestage õige krediidisumma</string>
+    <string name="errorFixedAmount">Sisestage õige fikseeritud kuumakse</string>
+    <string name="errorInterest">Sisestage õige aastaintress</string>
+    <string name="errorPeriod">Sisestage õige period</string>
+    <string name="type">Laenu tüüp</string>
+    <string-array name="types">
+        <item>Annuiteet</item>
+        <item>Fikseeritud põhiosa</item>
+        <item>Määratud põhiosa</item>
+    </string-array>
+    <string-array name="shorttypes">
+        <item>Annuiteet</item>
+        <item>Fikseeritud</item>
+        <item>Määratud</item>
+    </string-array>
+    <string name="fixedPayment">Määratud põhiosa</string>
+    <string name="paymentsCount">Maksete arv</string>
+    <string name="schedule">Graafik</string>
+    <string name="paymentNr">Nr</string>
+    <string name="paymentBalance">Jääk</string>
+    <string name="paymentPrincipal">Põhiosa</string>
+    <string name="paymentInterest">Intress</string>
+    <string name="paymentCommission">Komisjon</string>
+    <string name="paymentTotal">Makse</string>
+    <string name="close">Sulge</string>
+    <string name="scheduleTitle">Makse graafik</string>
+    <string name="typeHelpLbl">Abi</string>
+    <string name="annuityTitleHelp">Maksegraafik annuiteedi alusel</string>
+    <string name="diffTitleHelp">Maksegraafik fikseeritud põhiosa alusel</string>
+    <string name="fixedTitleHelp">Maksegraafik määratud põhiosa alusel</string>
+    <string name="annuityHelp">- võrdsed tagasimaksed kogu perioodi vältel. Makse summas sisalduvad nii põhiosa
+        tagasimakse kui arvestatud intress.
+    </string>
+    <string name="diffHelp">- võrdsed põhiosa tagasimaksed millele lisandub intress. Kuna intressi arvestatakse
+        laenusumma jäägilt, on intressimaksed alguses suuremad, hiljem aga väiksemad.
+    </string>
+    <string name="fixedHelp">- võrdsed põhiosa tagasimaksed kogu perioodi vältel millele lisandub intress laenusumma
+        jäägilt. Põhiosa tagasimakse suurust määrab laenuvõtja.
+    </string>
+    <string name="chartButton">Graafik</string>
+
+    <string name="compareTitle">Laenu võrdlus</string>
+    <string name="compareCleanLbl">Kustuta</string>
+    <string name="compareTypeLbl">Laenu tüüp:</string>
+    <string name="compareAmountLbl">Laenusumma:</string>
+    <string name="compareInterestLbl">Intress, %:</string>
+    <string name="comparePeriodLbl">Maksete arv:</string>
+    <string name="comparePaymentMaxLbl">Makse (max):</string>
+    <string name="comparePaymentMinLbl">Makse (min):</string>
+    <string name="compareInterestTotalLbl">Intressid:</string>
+    <string name="compareAmountTotalLbl">Kokku:</string>
+
+    <string name="addToCompare">Lisa võrdlusse</string>
+    <string name="viewCompare">Vaata võrdlused</string>
+    <string name="exportToEmail">Eposti eksport</string>
+    <string name="exportToExcel">Exceli eksport</string>
+    <string name="scheduleLoading">Makse graafik laaditakse....</string>
+
+    <string name="chartAmount">Laenusumma</string>
+    <string name="chartInterest">Intress</string>
+    <string name="chartTotal">Kokku</string>
+    <string name="sendEmail">Saada E-posti</string>
+    <string name="fileCreated">Export oli loodud nimega</string>
+
+    <string name="periodTypeYear">Aasta</string>
+    <string name="periodTypeMonth">Kuu</string>
+
+    <string name="yes">Jah</string>
+    <string name="no">Ei</string>
+    <string name="recalculateLoanQuestion">Kas tahate laenu ülearvutada?</string>
+
+    <string name="tabSchedule">Maksegraafik</string>
+    <string name="tabChart">Charts</string>
+
+    <string name="msgCalculated">Maks on arvutatud</string>
+
+    <string name="expand"> Näita rohkem... </string>
+    <string name="hide"> Peita </string>
+    <string name="downPayment">Esimene sissemaks</string>
+    <string name="donPaymentTotalLabel">Esimene sissemaks</string>
+    <string name="disposableCommission">Ühekordne komisjon</string>
+    <string name="monthlyCommission">Kuu komisjon</string>
+    <string name="commissionTotalLabel">Komisjonid kokku</string>
+
+    <string name="donate">Tee annetus</string>
+    <string name="effectiveInterestLbl">Krediidi kulukuse määr , %</string>
+    <string name="effectiveInterestCompareLbl">Kulukuse määr , %</string>
+    <string name="effectiveRateBtn">KKM.</string>
+    <string name="eff2NominalConvTitle">Sissestage kulukuse määr</string>
+    <string name="eff2NominalConvMessage">Calculating of nominal interest rate based on effective rate. (calculation ignores down payments and commissions)</string>
+
+    <string name="residue">Viimane maks (lean jäägiga)</string>
+
+</resources>

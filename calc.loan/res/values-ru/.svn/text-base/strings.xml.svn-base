@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Простой кредитный калькулятор</string>
+    <string name="app_desc">Простой калькулятор аннуитетного , дифференцированного и фиксированного платежа.</string>
+    <string name="amount">Сумма кредита</string>
+    <string name="amountHint">Сумма &gt; 0</string>
+    <string name="interest">Годовая процентная ставка, %</string>
+    <string name="interestHint">Процентная ставка &gt; 0</string>
+    <string name="period">Период</string>
+    <string name="calc">Рассчитать</string>
+    <string name="MonthlyAmountLbl">Месячный платеж</string>
+    <string name="IterestTotalLbl">Величина переплаты процентов</string>
+    <string name="AmountTotalLbl">Полная сумма</string>
+    <string name="errorAmount">Введите корректную сумму кредита</string>
+    <string name="errorFixedAmount">Введите корректную сумму фиксированного ежемесячного платежа</string>
+    <string name="errorInterest">Введите корректный годовой процент</string>
+    <string name="errorPeriod">Введите корректный период</string>
+    <string name="type">Тип кредита</string>
+    <string-array name="types">
+        <item>Аннуитетный платеж</item>
+        <item>Дифференцированный</item>
+        <item>Фиксированный платеж</item>
+    </string-array>
+
+    <string-array name="shorttypes">
+        <item>Аннуитет</item>
+        <item>Дифферен.</item>
+        <item>Фиксир.</item>
+    </string-array>
+    <string name="fixedPayment">Фиксированный платеж</string>
+    <string name="paymentsCount">Количество платежей</string>
+    <string name="schedule">График</string>
+    <string name="paymentNr">№</string>
+    <string name="paymentBalance">Баланс</string>
+    <string name="paymentPrincipal">Выплата</string>
+    <string name="paymentInterest">Проценты</string>
+    <string name="paymentCommission">Комиссия</string>
+    <string name="paymentTotal">Платеж</string>
+    <string name="close">Закрыть</string>
+    <string name="scheduleTitle">График выплат</string>
+    <string name="typeHelpLbl">Помощь</string>
+    <string name="annuityTitleHelp">Аннуитетный платеж</string>
+    <string name="diffTitleHelp">Дифференцированный платеж</string>
+    <string name="fixedTitleHelp">Фиксированный платеж</string>
+    <string name="annuityHelp">- это равный по сумме ежемесячный платеж по кредиту, который включает в себя сумму
+        начисленных процентов за кредит и сумму основного долга.
+    </string>
+    <string name="diffHelp">- это ежемесячный платеж по кредиту, уменьшающийся к концу срока кредитования и состоит из
+        выплачиваемой постоянной доли основного долга и процентов на невыплаченный остаток кредита.
+    </string>
+    <string name="fixedHelp">- это ежемесячный фиксированный возврат доли основного долга плюс проценты за невыплаченный
+        остаток кредита, отличается от дифференцированного тем, что сумму фиксированного возврата вы определяете сами.
+    </string>
+    <string name="chartTitle">График выплат по кредиту (БЕТА)</string>
+    <string name="chartButton">График</string>
+
+    <string name="compareTitle">Сравнение кредитов</string>
+    <string name="compareCleanLbl">Очистить</string>
+    <string name="compareTypeLbl">Тип:</string>
+    <string name="compareAmountLbl">Сумма:</string>
+    <string name="compareInterestLbl">Процент, %:</string>
+    <string name="comparePeriodLbl">Период, м:</string>
+    <string name="comparePaymentMaxLbl">Платеж (max):</string>
+    <string name="comparePaymentMinLbl">Платеж (min):</string>
+    <string name="compareInterestTotalLbl">Переплата:</string>
+    <string name="compareAmountTotalLbl">Всего:</string>
+
+    <string name="addToCompare">Добавить в сравнение</string>
+    <string name="viewCompare">Список сравнения</string>
+    <string name="exportToEmail">Экспорт на Email</string>
+    <string name="exportToExcel">Экспорт в Excel</string>
+
+    <string name="scheduleLoading">Загрузка графика ....</string>
+
+    <string name="chartAmount">Заем</string>
+    <string name="chartInterest">Проценты</string>
+    <string name="chartTotal">Всего</string>
+    <string name="sendEmail">Послать на E-mail</string>
+    <string name="fileCreated">Экспорт файл был создан с именем</string>
+
+    <string name="periodTypeYear">Год</string>
+    <string name="periodTypeMonth">Месяц</string>
+
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="recalculateLoanQuestion">Хотите пересчитать кредит?</string>
+
+    <string name="tabSchedule">Таблица выплат</string>
+    <string name="tabChart">Графики</string>
+
+    <string name="msgCalculated">Платеж рассчитан</string>
+    <string name="expand"> Развернуть... </string>
+    <string name="hide"> Свернуть </string>
+    <string name="downPayment">Первый взнос</string>
+    <string name="donPaymentTotalLabel">Первый взнос</string>
+    <string name="disposableCommission">Одноразовая комиссия</string>
+    <string name="monthlyCommission">Ежемесячная комиссия</string>
+    <string name="commissionTotalLabel">Комиссия всего</string>
+
+    <string name="downPaymentHint">(сумма или процент от суммы кредита)</string>
+    <string name="disposableCommissionHint">(сумма или процент от суммы кредита)</string>
+    <string name="monthlyCommissionHint">(сумма или процент от суммы платежа)</string>
+
+    <string name="valuePercentHint">сумма или процент</string>
+
+    <string name="errorDownPayment">Пожалуйста введите корректный первый взнос или оставте поле пустым</string>
+    <string name="errorDispCommission">Пожалуйста введите корректную одноразовою комиссию или оставте поле пустым</string>
+    <string name="errorMonthlyCommission">Пожалуйста введите корректную месячную комиссию или оставте поле пустым</string>
+
+    <string name="donate">Сделать пожертвование</string>
+    <string name="effectiveInterestLbl">Эффективная ставка, %</string>
+    <string name="effectiveInterestCompareLbl">Эффект. ставка, %</string>
+    <string name="effectiveRateBtn">Эффект.</string>
+    <string name="eff2NominalConvTitle">Введите эффективную ставку</string>
+    <string name="eff2NominalConvMessage">Расчет номинальной процентной ставки на основаннии эффективной ставки. (расчет игнорирует первоначальный взнос и комиссии)</string>
+
+    <string name="residue">Последний платеж (кредит с остатком)</string>
+    <string name="residueHint">(сумма или процент от суммы кредита)</string>
+    <string name="errorResidue">Введите корректную сумму остатка</string>
+
+</resources>
