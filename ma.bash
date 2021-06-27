@@ -49,6 +49,7 @@ _AT_ nidhi1608/TipCalculator fedac196588b40c201e2d7dbf1c88ff12562ca3b
 _AT_ nolanlawson/ChordReaderRoot 8dafebfbdfaf8784109dd16a899553bcffbd05ae
 _AT_ phora/AndroPTPB 75a794aba7a59e610b3973682c8a2d3bc77efed1
 _AT_ phora/AndroTSH 5b236d6b35e4203496c6b052d83c27aab4757f0b
+_AT_ pplutap/metal_field_detector c959a37a621d4e236cb60d6a77fbe3657b2e40ef
 _AT_ pyricau/buloid 01255e347b02f24bef79afdc641dd75aaa4f53b3
 _AT_ rath/android-calculator 0b29562b5b4fea96c10723cec663016702ee6b04
 _AT_ retrohacker/CS202-Final-Project a9825c39fb10b54e0bc014d5e145a3c6fb703cd9
@@ -69,4 +70,4 @@ _AT_ vxhex/SmsBomber 66407d71a8fe241678a904d6f82f144cca479a1a
 _AT_ winterbe/android-moneysheet e00491ddebc0a096ec1b40a179778877d6ca2fe5
 _AT_ wrr/speech_trainer 4fdd845f0a7ec0e9c7aef6f1290ffaf8999878f2
 rm -rf wrr/speech_trainer/wrr-speech_trainer-4fdd845/app_tests/
-# ma.bash OEF
+# BuildAPKs/buildAPKs.apps ma.bash OEF
