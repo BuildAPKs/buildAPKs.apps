@@ -37,7 +37,7 @@ public class ChooseSongActivity extends TabActivity {
         globalActivity = this;
         super.onCreate(state);
 
-       
+
         Bitmap allFilesIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.allfilesicon);
         Bitmap recentFilesIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.recentfilesicon);
         Bitmap browseFilesIcon = BitmapFactory.decodeResource(this.getResources(), R.drawable.browsefilesicon);
@@ -110,7 +110,7 @@ public class ChooseSongActivity extends TabActivity {
                 if (i >= 10) {
                     break; // only store 10 most recent files
                 }
-                JSONObject file = prevRecentFiles.getJSONObject(i); 
+                JSONObject file = prevRecentFiles.getJSONObject(i);
                 if (!FileUri.equalJson(recentFileJson, file)) {
                     recentFiles.put(file);
                 }

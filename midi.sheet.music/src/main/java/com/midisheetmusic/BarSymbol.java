@@ -48,7 +48,7 @@ public class BarSymbol implements MusicSymbol {
     /** Get the number of pixels this symbol extends above the staff. Used
      *  to determine the minimum height needed for the staff (Staff.FindBounds).
      */
-    public int getAboveStaff() { return 0; } 
+    public int getAboveStaff() { return 0; }
 
     /** Get the number of pixels this symbol extends below the staff. Used
      *  to determine the minimum height needed for the staff (Staff.FindBounds).
@@ -58,7 +58,7 @@ public class BarSymbol implements MusicSymbol {
     /** Draw a vertical bar.
      * @param ytop The ylocation (in pixels) where the top of the staff starts.
      */
-    public 
+    public
     void Draw(Canvas canvas, Paint paint, int ytop) {
         int y = ytop;
         int yend = y + SheetMusic.LineSpace*4 + SheetMusic.LineWidth*4;
@@ -68,7 +68,7 @@ public class BarSymbol implements MusicSymbol {
     }
 
     public String toString() {
-        return String.format("BarSymbol starttime=%1$s width=%2$s", 
+        return String.format("BarSymbol starttime=%1$s width=%2$s",
                              starttime, width);
     }
 }

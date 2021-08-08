@@ -38,7 +38,7 @@ public class SheetMusicActivity extends Activity {
 
     public static final String MidiTitleID = "MidiTitleID";
     public static final int settingsRequestCode = 1;
-    
+
     private MidiPlayer player;   /* The play/stop/rewind toolbar */
     private Piano piano;         /* The piano at the top */
     private SheetMusic sheet;    /* The sheet music */
@@ -47,7 +47,7 @@ public class SheetMusicActivity extends Activity {
     private MidiOptions options; /* The options for sheet music and sound */
     private long midiCRC;      /* CRC of the midi bytes */
 
-     /** Create this SheetMusicActivity.  
+     /** Create this SheetMusicActivity.
       * The Intent should have two parameters:
       * - data: The uri of the midi file to open.
       * - MidiTitleID: The title of the song (String)
@@ -82,7 +82,7 @@ public class SheetMusicActivity extends Activity {
         // If previous settings have been saved, used those
         options = new MidiOptions(midifile);
         CRC32 crc = new CRC32();
-        crc.update(data); 
+        crc.update(data);
         midiCRC = crc.getValue();
         SharedPreferences settings = getPreferences(0);
         options.scrollVert = settings.getBoolean("scrollVert", false);
@@ -97,7 +97,7 @@ public class SheetMusicActivity extends Activity {
         createView();
         createSheetMusic(options);
     }
-    
+
     /* Create the MidiPlayer and Piano views */
     void createView() {
         layout = new LinearLayout(this);
@@ -112,7 +112,7 @@ public class SheetMusicActivity extends Activity {
     }
 
     /** Create the SheetMusic view with the given options */
-    private void 
+    private void
     createSheetMusic(MidiOptions options) {
         if (sheet != null) {
             layout.removeView(sheet);
@@ -248,7 +248,7 @@ public class SheetMusicActivity extends Activity {
                 image.compress(Bitmap.CompressFormat.PNG, 0, stream);
                 image = null;
                 stream.close();
-    
+
                 // Inform the media scanner about the file
                 MediaScannerConnection.scanFile(this, new String[] { file.toString() }, null, null);
             }
@@ -295,17 +295,17 @@ public class SheetMusicActivity extends Activity {
         if (requestCode != settingsRequestCode) {
             return;
         }
-        options = (MidiOptions) 
+        options = (MidiOptions)
             intent.getSerializableExtra(SettingsActivity.settingsID);
 
         // Check whether the default instruments have changed.
         for (int i = 0; i < options.instruments.length; i++) {
-            if (options.instruments[i] !=  
+            if (options.instruments[i] !=
                 midifile.getTracks().get(i).getInstrument()) {
                 options.useDefaultInstruments = false;
             }
         }
-        // Save the options. 
+        // Save the options.
         SharedPreferences.Editor editor = getPreferences(0).edit();
         editor.putBoolean("scrollVert", options.scrollVert);
         editor.putInt("shade1Color", options.shade1Color);
@@ -341,6 +341,6 @@ public class SheetMusicActivity extends Activity {
             player.Pause();
         }
         super.onPause();
-    } 
+    }
 }
 

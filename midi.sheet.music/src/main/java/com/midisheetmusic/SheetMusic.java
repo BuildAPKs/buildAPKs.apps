@@ -34,7 +34,7 @@ class BoxedInt {
  *
  * SheetMusic()
  *   Create a new SheetMusic control from the given midi file and options.
- * 
+ *
  * onDraw()
  *   Method called to draw the SheetMuisc
  *
@@ -87,7 +87,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
     private int      viewwidth;       /** The width of this view. */
     private int      viewheight;      /** The height of this view. */
     private int      bufferX;         /** The (left,top) of the bufferCanvas */
-    private int      bufferY; 
+    private int      bufferY;
     private int      scrollX;         /** The (left,top) of the scroll clip */
     private int      scrollY;
     private ScrollAnimation scrollAnimation;
@@ -97,7 +97,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         bufferX = bufferY = scrollX = scrollY = 0;
-        
+
         Activity activity = (Activity)context;
         screenwidth = activity.getWindowManager().getDefaultDisplay().getWidth();
         screenheight = activity.getWindowManager().getDefaultDisplay().getHeight();
@@ -127,12 +127,12 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         Typeface typeface = Typeface.create(paint.getTypeface(), Typeface.NORMAL);
         paint.setTypeface(typeface);
         paint.setColor(Color.BLACK);
-        
+
         ArrayList<MidiTrack> tracks = file.ChangeMidiNotes(options);
         // SetNoteSize(options.largeNoteSize);
         scrollVert = options.scrollVert;
         showNoteLetters = options.showNoteLetters;
-        TimeSignature time = file.getTime(); 
+        TimeSignature time = file.getTime();
         if (options.time != null) {
             time = options.time;
         }
@@ -147,12 +147,12 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         int lastStart = file.EndTime() + options.shifttime;
 
         /* Create all the music symbols (notes, rests, vertical bars, and
-         * clef changes).  The symbols variable contains a list of music 
-         * symbols for each track.  The list does not include the left-side 
-         * Clef and key signature symbols.  Those can only be calculated 
+         * clef changes).  The symbols variable contains a list of music
+         * symbols for each track.  The list does not include the left-side
+         * Clef and key signature symbols.  Those can only be calculated
          * when we create the staffs.
          */
-        ArrayList<ArrayList<MusicSymbol>> allsymbols = 
+        ArrayList<ArrayList<MusicSymbol>> allsymbols =
           new ArrayList<ArrayList<MusicSymbol> >(numtracks);
 
         for (int tracknum = 0; tracknum < numtracks; tracknum++) {
@@ -205,7 +205,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
 
     /* Adjust the zoom level so that the sheet music page (PageWidth)
      * fits within the width. If the heightspec is 0, return the screenheight.
-     * Else, use the given view width/height. 
+     * Else, use the given view width/height.
      */
     @Override
     protected void onMeasure(int widthspec, int heightspec) {
@@ -223,7 +223,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             setMeasuredDimension(specwidth, screenheight);
         }
         else {
-            setMeasuredDimension(specwidth, specheight);            
+            setMeasuredDimension(specwidth, specheight);
         }
     }
 
@@ -232,7 +232,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
      *  and create the bufferCanvas.  Otherwise, do nothing.
      */
     @Override
-    protected void 
+    protected void
     onSizeChanged(int newwidth, int newheight, int oldwidth, int oldheight) {
         viewwidth = newwidth;
         viewheight = newheight;
@@ -258,7 +258,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         }
         callOnDraw();
     }
-    
+
 
     /** Get the best key signature given the midi notes in all the tracks. */
     private KeySignature GetKeySignature(ArrayList<MidiTrack> tracks) {
@@ -280,7 +280,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
      * @ret An array of ChordSymbols
      */
     private
-    ArrayList<ChordSymbol> CreateChords(ArrayList<MidiNote> midinotes, 
+    ArrayList<ChordSymbol> CreateChords(ArrayList<MidiNote> midinotes,
                                    KeySignature key,
                                    TimeSignature time,
                                    ClefMeasures clefs) {
@@ -288,7 +288,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         int i = 0;
         ArrayList<ChordSymbol> chords = new ArrayList<ChordSymbol>();
         ArrayList<MidiNote> notegroup = new ArrayList<MidiNote>(12);
-        int len = midinotes.size(); 
+        int len = midinotes.size();
 
         while (i < len) {
 
@@ -321,7 +321,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
      * clef changes.
      * Return a list of symbols (ChordSymbol, BarSymbol, RestSymbol, ClefSymbol)
      */
-    private ArrayList<MusicSymbol> 
+    private ArrayList<MusicSymbol>
     CreateSymbols(ArrayList<ChordSymbol> chords, ClefMeasures clefs,
                   TimeSignature time, int lastStart) {
 
@@ -333,10 +333,10 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         return symbols;
     }
 
-    /** Add in the vertical bars delimiting measures. 
+    /** Add in the vertical bars delimiting measures.
      *  Also, add the time signature symbols.
      */
-    private ArrayList<MusicSymbol> 
+    private ArrayList<MusicSymbol>
     AddBars(ArrayList<ChordSymbol> chords, TimeSignature time, int lastStart) {
         ArrayList<MusicSymbol> symbols = new ArrayList<MusicSymbol>();
 
@@ -369,7 +369,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         return symbols;
     }
 
-    /** Add rest symbols between notes.  All times below are 
+    /** Add rest symbols between notes.  All times below are
      * measured in pulses.
      */
     private
@@ -424,21 +424,21 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
 
             case DottedHalf:
                 r1 = new RestSymbol(start, NoteDuration.Half);
-                r2 = new RestSymbol(start + time.getQuarter()*2, 
+                r2 = new RestSymbol(start + time.getQuarter()*2,
                                     NoteDuration.Quarter);
                 result = new RestSymbol[]{ r1, r2 };
                 return result;
 
             case DottedQuarter:
                 r1 = new RestSymbol(start, NoteDuration.Quarter);
-                r2 = new RestSymbol(start + time.getQuarter(), 
+                r2 = new RestSymbol(start + time.getQuarter(),
                                     NoteDuration.Eighth);
                 result = new RestSymbol[]{ r1, r2 };
-                return result; 
+                return result;
 
             case DottedEighth:
                 r1 = new RestSymbol(start, NoteDuration.Eighth);
-                r2 = new RestSymbol(start + time.getQuarter()/2, 
+                r2 = new RestSymbol(start + time.getQuarter()/2,
                                     NoteDuration.Sixteenth);
                 result = new RestSymbol[]{ r1, r2 };
                 return result;
@@ -449,8 +449,8 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
     }
 
     /** The current clef is always shown at the beginning of the staff, on
-     * the left side.  However, the clef can also change from measure to 
-     * measure. When it does, a Clef symbol must be shown to indicate the 
+     * the left side.  However, the clef can also change from measure to
+     * measure. When it does, a Clef symbol must be shown to indicate the
      * change in clef.  This function adds these Clef change symbols.
      * This function does not add the main Clef Symbol that begins each
      * staff.  That is done in the Staff() contructor.
@@ -475,10 +475,10 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         }
         return result;
     }
-           
+
 
     /** Notes with the same start times in different staffs should be
-     * vertically aligned.  The SymbolWidths class is used to help 
+     * vertically aligned.  The SymbolWidths class is used to help
      * vertically align symbols.
      *
      * First, each track should have a symbol for every starttime that
@@ -529,7 +529,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
 
                 if (i < symbols.size() && symbols.get(i).getStartTime() == start) {
 
-                    while (i < symbols.size() && 
+                    while (i < symbols.size() &&
                            symbols.get(i).getStartTime() == start) {
 
                         result.add(symbols.get(i));
@@ -559,7 +559,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
                 while (i < result.size() && result.get(i).getStartTime() == start) {
                     i++;
                 }
-            } 
+            }
             allsymbols.set(track, result);
         }
     }
@@ -604,7 +604,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             for (int chordIndex = 1; chordIndex < numChords; chordIndex++) {
                 i++;
                 int remaining = numChords - 1 - chordIndex;
-                while ((i < symbols.size() - remaining) && 
+                while ((i < symbols.size() - remaining) &&
                        (symbols.get(i) instanceof BlankSymbol)) {
 
                     horizDistance.value += symbols.get(i).getWidth();
@@ -714,8 +714,8 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
      *  Each Staff has a maxmimum width of PageWidth (800 pixels).
      *  Also, measures should not span multiple Staffs.
      */
-    private ArrayList<Staff> 
-    CreateStaffsForTrack(ArrayList<MusicSymbol> symbols, int measurelen, 
+    private ArrayList<Staff>
+    CreateStaffsForTrack(ArrayList<MusicSymbol> symbols, int measurelen,
                          KeySignature key, MidiOptions options,
                          int track, int totaltracks) {
         int keysigWidth = KeySignatureWidth(key);
@@ -769,7 +769,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             }
             else {
                 int endmeasure = symbols.get(endindex+1).getStartTime()/measurelen;
-                while (symbols.get(endindex).getStartTime() / measurelen == 
+                while (symbols.get(endindex).getStartTime() / measurelen ==
                        endmeasure) {
                     endindex--;
                 }
@@ -807,19 +807,19 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
      *   staffs = { Staff0 for track 0, Staff0 for track1, Staff0 for track2,
      *              Staff1 for track 0, Staff1 for track1, Staff1 for track2,
      *              Staff2 for track 0, Staff2 for track1, Staff2 for track2,
-     *              ... } 
+     *              ... }
      */
-    private ArrayList<Staff> 
-    CreateStaffs(ArrayList<ArrayList<MusicSymbol>> allsymbols, KeySignature key, 
+    private ArrayList<Staff>
+    CreateStaffs(ArrayList<ArrayList<MusicSymbol>> allsymbols, KeySignature key,
                  MidiOptions options, int measurelen) {
 
-        ArrayList<ArrayList<Staff>> trackstaffs = 
+        ArrayList<ArrayList<Staff>> trackstaffs =
           new ArrayList<ArrayList<Staff>>( allsymbols.size() );
         int totaltracks = allsymbols.size();
 
         for (int track = 0; track < totaltracks; track++) {
             ArrayList<MusicSymbol> symbols = allsymbols.get( track );
-            trackstaffs.add(CreateStaffsForTrack(symbols, measurelen, key, 
+            trackstaffs.add(CreateStaffsForTrack(symbols, measurelen, key,
                                                  options, track, totaltracks));
         }
 
@@ -849,7 +849,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
     }
 
 
-    /** Change the note colors for the sheet music, and redraw. 
+    /** Change the note colors for the sheet music, and redraw.
      *  This is not currently used.
      */
     public void SetColors(int[] newcolors, int newshade1, int newshade2) {
@@ -886,7 +886,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
     public KeySignature getMainKey() { return mainkey; }
 
     /** Get the lyrics for each track */
-    private static ArrayList<ArrayList<LyricSymbol>> 
+    private static ArrayList<ArrayList<LyricSymbol>>
     GetLyrics(ArrayList<MidiTrack> tracks) {
        boolean hasLyrics = false;
         ArrayList<ArrayList<LyricSymbol>> result = new ArrayList<ArrayList<LyricSymbol>>();
@@ -934,7 +934,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
      *  new notes to shade/unshade) onto the bitmap, and then draw the bitmap.
      *
      *  We include the MidiPlayer height (since we hide the MidiPlayer
-     *  once the music starts playing). Also, we make the bitmap twice as 
+     *  once the music starts playing). Also, we make the bitmap twice as
      *  large as the scroll viewable area, so that we don't need to
      *  refresh the bufferCanvas on every scroll change.
      */
@@ -945,13 +945,13 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             bufferBitmap = null;
         }
         if (scrollVert) {
-            bufferBitmap = Bitmap.createBitmap(viewwidth, 
-                                               (viewheight + playerHeight) * 2, 
+            bufferBitmap = Bitmap.createBitmap(viewwidth,
+                                               (viewheight + playerHeight) * 2,
                                                Bitmap.Config.ARGB_8888);
         }
         else {
-            bufferBitmap = Bitmap.createBitmap(viewwidth * 2, 
-                                               (viewheight + playerHeight) * 2, 
+            bufferBitmap = Bitmap.createBitmap(viewwidth * 2,
+                                               (viewheight + playerHeight) * 2,
                                                Bitmap.Config.ARGB_8888);
         }
 
@@ -984,13 +984,13 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             drawToBuffer(scrollX, scrollY);
         }
 
-        // We want (scrollX - bufferX, scrollY - bufferY) 
-        // to be (0,0) on the canvas 
+        // We want (scrollX - bufferX, scrollY - bufferY)
+        // to be (0,0) on the canvas
         canvas.translate(-(scrollX - bufferX), -(scrollY - bufferY));
         canvas.drawBitmap(bufferBitmap, 0, 0, paint);
         canvas.translate(scrollX - bufferX, scrollY - bufferY);
     }
-    
+
     /** Return true if the scrollX/scrollY is in the bufferBitmap */
     private boolean isScrollPositionInBuffer() {
         if ((scrollY < bufferY) ||
@@ -1004,10 +1004,10 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             return true;
         }
     }
-    
+
     /** Draw the SheetMusic to the bufferCanvas, with the
      * given (left,top) corner.
-     *  
+     *
      * Scale the graphics by the current zoom factor.
      * Only draw Staffs which lie inside the buffer area.
      */
@@ -1018,10 +1018,10 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
 
         bufferX =left;
         bufferY = top;
-        
+
         bufferCanvas.translate(-bufferX, -bufferY);
         Rect clip = new Rect(bufferX, bufferY,
-                             bufferX + bufferBitmap.getWidth(), 
+                             bufferX + bufferBitmap.getWidth(),
                              bufferY + bufferBitmap.getHeight());
 
         // Scale both the canvas and the clip by the zoom factor
@@ -1239,7 +1239,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
          */
         bufferCanvas.translate(-bufferX, -bufferY);
 
-        /* Loop through each staff.  Each staff will shade any notes that 
+        /* Loop through each staff.  Each staff will shade any notes that
          * start at currentPulseTime, and unshade notes at prevPulseTime.
          */
         int x_shade = 0;
@@ -1249,7 +1249,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         int ypos = 0;
         for (Staff staff : staffs) {
             bufferCanvas.translate(0, ypos);
-            x_shade = staff.ShadeNotes(bufferCanvas, paint, shade1, 
+            x_shade = staff.ShadeNotes(bufferCanvas, paint, shade1,
                             currentPulseTime, prevPulseTime, x_shade);
             bufferCanvas.translate(0, -ypos);
             ypos += staff.getHeight();
@@ -1285,8 +1285,8 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             return;
         }
 
-        /* Draw the buffer canvas to the real canvas.        
-         * Translate canvas such that (scrollX,scrollY) within the 
+        /* Draw the buffer canvas to the real canvas.
+         * Translate canvas such that (scrollX,scrollY) within the
          * bufferCanvas maps to (0,0) on the real canvas.
          */
         SurfaceHolder holder = getHolder();
@@ -1323,7 +1323,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
             int scrollDist = x_shade - x_view;
 
             if (scrollGradually) {
-                if (x_shade > xmax) 
+                if (x_shade > xmax)
                     scrollDist = (x_shade - x_view)/3;
                 else if (x_shade > x_view)
                     scrollDist = (x_shade - x_view)/6;
@@ -1360,7 +1360,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         // Get the width/height of the scrollable area
         int scrollwidth = (int)(sheetwidth * zoom);
         int scrollheight = (int)(sheetheight * zoom);
-        
+
         if (scrollX < 0) {
             scrollX = 0;
         }
@@ -1384,7 +1384,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
         boolean result = scrollAnimation.onTouchEvent(event);
         switch (action) {
             case MotionEvent.ACTION_DOWN:
-                // If we touch while music is playing, stop the midi player 
+                // If we touch while music is playing, stop the midi player
                 if (player != null && player.getVisibility() == View.GONE) {
                     player.Pause();
                     scrollAnimation.stopMotion();
@@ -1421,7 +1421,7 @@ public class SheetMusic extends SurfaceView implements SurfaceHolder.Callback, S
     public void setPlayer(MidiPlayer p) {
         player = p;
     }
-    
+
     public void
     surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         callOnDraw();

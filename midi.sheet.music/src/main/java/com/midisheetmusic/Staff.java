@@ -17,7 +17,7 @@ import android.graphics.*;
 
 
 /* @class Staff
- * The Staff is used to draw a single Staff (a row of measures) in the 
+ * The Staff is used to draw a single Staff (a row of measures) in the
  * SheetMusic Control. A Staff needs to draw
  * - The Clef
  * - The key signature
@@ -29,7 +29,7 @@ import android.graphics.*;
  * MusicSymbol extends above and below the staff.
  *
  * The vertical lines (left and right sides) of the staff are joined
- * with the staffs above and below it, with one exception.  
+ * with the staffs above and below it, with one exception.
  * The last track is not joined with the first track.
  */
 
@@ -56,7 +56,7 @@ public class Staff {
      * with the staffs above and below. The MidiOptions are used
      * to check whether to display measure numbers or not.
      */
-    public Staff(ArrayList<MusicSymbol> symbols, KeySignature key, 
+    public Staff(ArrayList<MusicSymbol> symbols, KeySignature key,
                  MidiOptions options, int tracknum, int totaltracks)  {
 
         keysigWidth = SheetMusic.KeySignatureWidth(key);
@@ -90,13 +90,13 @@ public class Staff {
     public int getTrack() { return tracknum; }
 
     /** Return the starting time of the staff, the start time of
-     *  the first symbol.  This is used during playback, to 
+     *  the first symbol.  This is used during playback, to
      *  automatically scroll the music while playing.
      */
     public int getStartTime() { return starttime; }
 
     /** Return the ending time of the staff, the endtime of
-     *  the last symbol.  This is used during playback, to 
+     *  the last symbol.  This is used during playback, to
      *  automatically scroll the music while playing.
      */
     public int getEndTime() { return endtime; }
@@ -342,8 +342,8 @@ public class Staff {
             canvas.translate(-xpos, 0);
             xpos += a.getWidth();
         }
-       
-        /* Draw the actual notes, rests, bars.  Draw the symbols one 
+
+        /* Draw the actual notes, rests, bars.  Draw the symbols one
          * after another, using the symbol width to determine the
          * x position of the next symbol.
          *
@@ -391,10 +391,10 @@ public class Staff {
         ChordSymbol prevChord = null;
         int prev_xpos = 0;
 
-        /* Loop through the symbols. 
+        /* Loop through the symbols.
          * Unshade symbols where start <= prevPulseTime < end
          * Shade symbols where start <= currentPulseTime < end
-         */ 
+         */
         for (int i = 0; i < symbols.size(); i++) {
             curr = symbols.get(i);
             if (curr instanceof BarSymbol) {

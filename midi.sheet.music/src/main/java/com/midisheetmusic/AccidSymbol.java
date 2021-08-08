@@ -27,7 +27,7 @@ public class AccidSymbol implements MusicSymbol {
     private Clef clef;            /** Which clef the symbols is in */
     private int width;            /** Width of symbol */
 
-    /** 
+    /**
      * 创建一个新的 AccidSymbol Create a new AccidSymbol with the given accidental, that is
      * displayed at the given note in the given clef.
      */
@@ -45,7 +45,7 @@ public class AccidSymbol implements MusicSymbol {
      * Not used.  Instead, the StartTime of the ChordSymbol containing this
      * AccidSymbol is used.
      */
-    public int getStartTime() { return -1; }  
+    public int getStartTime() { return -1; }
 
     /** Get the minimum width (in pixels) needed to draw this symbol */
     public int getMinWidth() { return 3*SheetMusic.NoteHeight/2; }
@@ -60,7 +60,7 @@ public class AccidSymbol implements MusicSymbol {
      *  to determine the minimum height needed for the staff (Staff.FindBounds).
      */
     public int getAboveStaff() {
-        int dist = WhiteNote.Top(clef).Dist(whitenote) * 
+        int dist = WhiteNote.Top(clef).Dist(whitenote) *
                    SheetMusic.NoteHeight/2;
         if (accid == Accid.Sharp || accid == Accid.Natural)
             dist -= SheetMusic.NoteHeight;
@@ -77,15 +77,15 @@ public class AccidSymbol implements MusicSymbol {
      *  to determine the minimum height needed for the staff (Staff.FindBounds).
      */
     public int getBelowStaff() {
-        int dist = WhiteNote.Bottom(clef).Dist(whitenote) * 
-                   SheetMusic.NoteHeight/2 + 
+        int dist = WhiteNote.Bottom(clef).Dist(whitenote) *
+                   SheetMusic.NoteHeight/2 +
                    SheetMusic.NoteHeight;
-        if (accid == Accid.Sharp || accid == Accid.Natural) 
+        if (accid == Accid.Sharp || accid == Accid.Natural)
             dist += SheetMusic.NoteHeight;
 
         if (dist > 0)
             return dist;
-        else 
+        else
             return 0;
     }
 
@@ -97,7 +97,7 @@ public class AccidSymbol implements MusicSymbol {
         canvas.translate(getWidth() - getMinWidth(), 0);
 
         /* Store the y-pixel value of the top of the whitenote in ynote. */
-        int ynote = ytop + WhiteNote.Top(clef).Dist(whitenote) * 
+        int ynote = ytop + WhiteNote.Top(clef).Dist(whitenote) *
                     SheetMusic.NoteHeight/2;
 
         if (accid == Accid.Sharp)
@@ -110,8 +110,8 @@ public class AccidSymbol implements MusicSymbol {
         canvas.translate(-(getWidth() - getMinWidth()), 0);
     }
 
-    /** Draw a sharp symbol. 
-     * @param ynote The pixel location of the top of the accidental's note. 
+    /** Draw a sharp symbol.
+     * @param ynote The pixel location of the top of the accidental's note.
      */
     public void DrawSharp(Canvas canvas, Paint paint, int ynote) {
 
@@ -145,35 +145,35 @@ public class AccidSymbol implements MusicSymbol {
 
         /* Draw the vertical line */
         paint.setStrokeWidth(1);
-        canvas.drawLine(x, ynote - SheetMusic.NoteHeight - SheetMusic.NoteHeight/2, 
+        canvas.drawLine(x, ynote - SheetMusic.NoteHeight - SheetMusic.NoteHeight/2,
                         x, ynote + SheetMusic.NoteHeight, paint);
 
         /* Draw 3 bezier curves.
          * All 3 curves start and stop at the same points.
-         * Each subsequent curve bulges more and more towards 
+         * Each subsequent curve bulges more and more towards
          * the topright corner, making the curve look thicker
          * towards the top-right.
          */
         Path bezierPath = new Path();
         bezierPath.moveTo(x, ynote + SheetMusic.LineSpace/4);
-        bezierPath.cubicTo(x + SheetMusic.LineSpace/2, ynote - SheetMusic.LineSpace/2, 
-                           x + SheetMusic.LineSpace, ynote + SheetMusic.LineSpace/3, 
+        bezierPath.cubicTo(x + SheetMusic.LineSpace/2, ynote - SheetMusic.LineSpace/2,
+                           x + SheetMusic.LineSpace, ynote + SheetMusic.LineSpace/3,
                            x, ynote + SheetMusic.LineSpace + SheetMusic.LineWidth + 1);
         canvas.drawPath(bezierPath, paint);
 
         bezierPath = new Path();
         bezierPath.moveTo(x, ynote + SheetMusic.LineSpace/4);
-        bezierPath.cubicTo(x + SheetMusic.LineSpace/2, ynote - SheetMusic.LineSpace/2, 
-                           x + SheetMusic.LineSpace + SheetMusic.LineSpace/4, 
-                           ynote + SheetMusic.LineSpace/3 - SheetMusic.LineSpace/4, 
+        bezierPath.cubicTo(x + SheetMusic.LineSpace/2, ynote - SheetMusic.LineSpace/2,
+                           x + SheetMusic.LineSpace + SheetMusic.LineSpace/4,
+                           ynote + SheetMusic.LineSpace/3 - SheetMusic.LineSpace/4,
                            x, ynote + SheetMusic.LineSpace + SheetMusic.LineWidth + 1);
         canvas.drawPath(bezierPath, paint);
 
         bezierPath = new Path();
         bezierPath.moveTo(x, ynote + SheetMusic.LineSpace/4);
-        bezierPath.cubicTo(x + SheetMusic.LineSpace/2, ynote - SheetMusic.LineSpace/2, 
-                           x + SheetMusic.LineSpace + SheetMusic.LineSpace/2, 
-                           ynote + SheetMusic.LineSpace/3 - SheetMusic.LineSpace/2, 
+        bezierPath.cubicTo(x + SheetMusic.LineSpace/2, ynote - SheetMusic.LineSpace/2,
+                           x + SheetMusic.LineSpace + SheetMusic.LineSpace/2,
+                           ynote + SheetMusic.LineSpace/3 - SheetMusic.LineSpace/2,
                            x, ynote + SheetMusic.LineSpace + SheetMusic.LineWidth + 1);
         canvas.drawPath(bezierPath, paint);
 
@@ -192,7 +192,7 @@ public class AccidSymbol implements MusicSymbol {
         canvas.drawLine(x, ystart, x, yend, paint);
         x += SheetMusic.LineSpace - SheetMusic.LineSpace/4;
         ystart = ynote - SheetMusic.LineSpace/4;
-        yend = ynote + 2*SheetMusic.LineSpace + SheetMusic.LineWidth - 
+        yend = ynote + 2*SheetMusic.LineSpace + SheetMusic.LineWidth -
                  SheetMusic.LineSpace/4;
         canvas.drawLine(x, ystart, x, yend, paint);
 
@@ -209,7 +209,7 @@ public class AccidSymbol implements MusicSymbol {
         paint.setStrokeWidth(1);
     }
 
-    
+
     public String toString() {
         return String.format(
           "AccidSymbol accid={0} whitenote={1} clef={2} width={3}",

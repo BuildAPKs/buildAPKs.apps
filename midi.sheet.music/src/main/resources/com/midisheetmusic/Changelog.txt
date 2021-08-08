@@ -42,7 +42,7 @@ MidiSheetMusic 2.3 (Jan 15, 2012)
 
 - Added new menu "Open Sample Song" to select one of the sample songs.
 
-- Added a new menu option "Show Measure Numbers" to display the 
+- Added a new menu option "Show Measure Numbers" to display the
   measure numbers for each staff.
 
 - Added a new menu and dialog "Play Measures in a Loop", which allows you
@@ -52,24 +52,24 @@ MidiSheetMusic 2.3 (Jan 15, 2012)
 - Improved the algorithm that chooses how to connect chords with beams.
   For example, added support for beams connecting 4 chords and 6 chords.
 
-- Fixed a bug where the notes aren't vertically aligned towards the very 
+- Fixed a bug where the notes aren't vertically aligned towards the very
   end of the song.
 
-- Fixed a bug in Windows, where the sound didn't play if the filename was 
+- Fixed a bug in Windows, where the sound didn't play if the filename was
   too long.
 
 - Fixed a bug in Windows, where the sound and highlighting didn't sync up
   when the midi file had too many ControlChange events.
 
-- Fix a bug when using horizontal scrolling, where the sheet music 
+- Fix a bug when using horizontal scrolling, where the sheet music
   suddenly jumps to the start of the song during playback.
 
 - De-select percussion tracks by default.
 
-- Fix a bug on Mac OS X, where you couldn't open midi files with 
+- Fix a bug on Mac OS X, where you couldn't open midi files with
   non-ascii filenames.
 
-- Added a project build file (SheetMusicDLL.csproj) for developers who 
+- Added a project build file (SheetMusicDLL.csproj) for developers who
   want to build the SheetMusic Control as a standalone DLL library,
   independent of the MidiSheetMusic executable.
 
@@ -77,7 +77,7 @@ MidiSheetMusic 2.3 (Jan 15, 2012)
 
 MidiSheetMusic 2.2 (June 26, 2011)
 
-- Improved the appearance of the sheet music by doing "full justification".  
+- Improved the appearance of the sheet music by doing "full justification".
   That is, increase the horizontal spacing of the symbols so that they
   fill out the staff.
 
@@ -96,7 +96,7 @@ MidiSheetMusic 2.2 (June 26, 2011)
 - Added a new menu option "Show Note Letters" which displays the actual
   note letters (A, A#, Bb, etc) beside the notes in the sheet music.
 
-- Fixed a bug with the G-flat key signature, where B-flat was being 
+- Fixed a bug with the G-flat key signature, where B-flat was being
   displayed as A.
 
 - Fixed a bug in the "Choose Instruments" dialog, where typing in your own
@@ -132,7 +132,7 @@ MidiSheetMusic 2.1 (Feb 6, 2011)
   GetWhiteNote and GetAccidental.
 
 - Changed MidiFile.ReadTrack so that if it encounters a truncated
-  Midi file, it returns what it has parsed so far, instead of 
+  Midi file, it returns what it has parsed so far, instead of
   throwing an exception.
 
 - Improved the accuracy and speed of the MidiFile.SplitTrack() method.
@@ -145,7 +145,7 @@ MidiSheetMusic 2.1 (Feb 6, 2011)
 - Fixed errors in the MusicSymbolDiagram at the bottom of README.html.
 
 - Display the message "Use the menu File:Open to select a MIDI file" on
-  startup.  
+  startup.
 
 
 MidiSheetMusic 2.0 (Oct 10, 2010)
@@ -195,7 +195,7 @@ MidiSheetMusic 1.4 (March 7, 2010)
 
 MidiSheetMusic 1.3 (March 9 2009)
 
-- Fixed OpenFileDialog and SaveFileDialog problems by marking 
+- Fixed OpenFileDialog and SaveFileDialog problems by marking
   the application as single-threaded, i.e. by adding the attribute
   [STAThread] to the Main() function.
 

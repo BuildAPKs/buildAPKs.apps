@@ -26,10 +26,10 @@ public class LyricSymbol {
     private int x;           /** The x (horizontal) position within the staff */
 
     public LyricSymbol(int starttime, String text) {
-        this.starttime = starttime; 
+        this.starttime = starttime;
         this.text = text;
     }
-     
+
     public int getStartTime() { return starttime; }
     public void setStartTime(int value) { starttime = value; }
 
@@ -42,7 +42,7 @@ public class LyricSymbol {
     /* Return the minimum width in pixels needed to display this lyric.
      * This is an estimation, not exact.
      */
-    public int getMinWidth() { 
+    public int getMinWidth() {
         float widthPerChar = 10.0f * 2.0f/3.0f;
         float width = text.length() * widthPerChar;
         if (text.indexOf("i") >= 0) {

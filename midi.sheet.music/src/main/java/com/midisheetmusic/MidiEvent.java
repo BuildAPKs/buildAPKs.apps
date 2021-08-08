@@ -25,7 +25,7 @@ public class MidiEvent implements Comparator<MidiEvent> {
     public int    StartTime;     /** The absolute time this event occurs */
     public boolean HasEventflag; /** False if this is using the previous eventflag */
     public byte   EventFlag;     /** NoteOn, NoteOff, etc.  Full list is in class MidiFile */
-    public byte   Channel;       /** The channel this event occurs on */ 
+    public byte   Channel;       /** The channel this event occurs on */
 
     public byte   Notenumber;    /** The note number  */
     public byte   Velocity;      /** The volume of the note */

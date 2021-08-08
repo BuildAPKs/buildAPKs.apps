@@ -85,7 +85,7 @@ class ScanMidiFiles extends AsyncTask<Integer, Integer, ArrayList<FileUri> > {
     protected void onCancelled() {
         this.activity = null;
     }
-    
+
     /* Given a directory, add MIDI files (ending in .mid) to the songlist.
      * If the directory contains subdirectories, call this method recursively.
      */
@@ -99,7 +99,7 @@ class ScanMidiFiles extends AsyncTask<Integer, Integer, ArrayList<FileUri> > {
         File[] files = dir.listFiles();
         if (files == null) {
             return;
-        }        
+        }
         for (File file : files) {
             if (file == null) {
                 continue;
@@ -135,13 +135,13 @@ class ScanMidiFiles extends AsyncTask<Integer, Integer, ArrayList<FileUri> > {
 /** @class AllSongsActivity
  * The AllSongsActivity class is used to display a list of
  * songs to choose from.  The list is created from the songs
- * shipped with MidiSheetMusic (in the assets directory), and 
- * also by searching for midi files in the internal/external 
+ * shipped with MidiSheetMusic (in the assets directory), and
+ * also by searching for midi files in the internal/external
  * device storage.
  *
  * When a song is chosen, this calls the SheetMusicAcitivty, passing
  * the raw midi byte[] data as a parameter in the Intent.
- */ 
+ */
 public class AllSongsActivity extends ListActivity implements TextWatcher {
 
     /** The complete list of midi files */
@@ -162,14 +162,14 @@ public class AllSongsActivity extends ListActivity implements TextWatcher {
     public Object onRetainNonConfigurationInstance() {
         return songlist;
     }
-    
-    
+
+
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
         setContentView(R.layout.choose_song);
         setTitle("MidiSheetMusic: Choose Song");
-        
+
         /* If we're restarting from an orientation change,
          * load the saved song list.
          */
@@ -276,16 +276,16 @@ public class AllSongsActivity extends ListActivity implements TextWatcher {
         }
     }
 
-    
-    /** Look for midi files (with mime-type audio/midi) in the 
+
+    /** Look for midi files (with mime-type audio/midi) in the
      * internal/external storage. Add them to the songlist.
      */
     private void loadMidiFilesFromProvider(Uri content_uri) {
         ContentResolver resolver = getContentResolver();
-        String columns[] = { 
+        String columns[] = {
             MediaStore.Audio.Media._ID,
-            MediaStore.Audio.Media.TITLE, 
-            MediaStore.Audio.Media.MIME_TYPE 
+            MediaStore.Audio.Media.TITLE,
+            MediaStore.Audio.Media.MIME_TYPE
         };
         String selection = MediaStore.Audio.Media.MIME_TYPE + " LIKE '%mid%'";
         Cursor cursor = resolver.query(content_uri, columns, selection, null, null);
@@ -296,7 +296,7 @@ public class AllSongsActivity extends ListActivity implements TextWatcher {
             cursor.close();
             return;
         }
-        
+
         do {
             int idColumn = cursor.getColumnIndex(MediaStore.Audio.Media._ID);
             int titleColumn = cursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
@@ -344,7 +344,7 @@ public class AllSongsActivity extends ListActivity implements TextWatcher {
     public void afterTextChanged(Editable s) {
     }
 
-   
+
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
     }

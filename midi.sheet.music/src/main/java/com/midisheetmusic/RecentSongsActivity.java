@@ -65,7 +65,7 @@ public class RecentSongsActivity extends ListActivity {
         catch (Exception e) {
         }
     }
-            
+
     @Override
     public void onResume() {
         super.onResume();
@@ -78,7 +78,7 @@ public class RecentSongsActivity extends ListActivity {
         super.onListItemClick(parent, view, position, id);
         FileUri file = (FileUri) this.getListAdapter().getItem(position);
         ChooseSongActivity.openFile(file);
-    }  
+    }
 }
 
 

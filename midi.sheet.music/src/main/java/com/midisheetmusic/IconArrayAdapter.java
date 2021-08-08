@@ -46,7 +46,7 @@ class IconArrayAdapter<T> extends ArrayAdapter<T> {
     public IconArrayAdapter(Context context, int resourceId, List<T> objects) {
         super(context, resourceId, objects);
         LoadImages(context);
-        inflater = LayoutInflater.from(context); 
+        inflater = LayoutInflater.from(context);
     }
 
     /** Create a view for displaying a song in the ListView.

@@ -22,7 +22,7 @@ import java.io.*;
  * - The number of microseconds per quarter note
  *
  * In midi files, all time is measured in "pulses".  Each note has
- * a start time (measured in pulses), and a duration (measured in 
+ * a start time (measured in pulses), and a duration (measured in
  * pulses).  This class is used mainly to convert pulse durations
  * (like 120, 240, etc) into note durations (half, quarter, eighth, etc).
  */
@@ -46,7 +46,7 @@ public class TimeSignature implements Serializable {
     /** Get the number of pulses per measure */
     public int getMeasure() { return measure; }
 
-    /** Get the number of microseconds per quarter note */ 
+    /** Get the number of microseconds per quarter note */
     public int getTempo() { return tempo; }
 
     /** Create a new time signature, with the given numerator,
@@ -96,11 +96,11 @@ public class TimeSignature implements Serializable {
          triplet         = 5.33/64
          1/16    =  2/32 =    4/64
          1/32    =  1/32 =    2/64
-         **/ 
+         **/
 
         if      (duration >= 28*whole/32)
             return NoteDuration.Whole;
-        else if (duration >= 20*whole/32) 
+        else if (duration >= 20*whole/32)
             return NoteDuration.DottedHalf;
         else if (duration >= 14*whole/32)
             return NoteDuration.Half;
@@ -140,27 +140,27 @@ public class TimeSignature implements Serializable {
         int sixteenth = eighth/2;
 
         switch (dur) {
-            case Whole:         return quarternote * 4; 
-            case DottedHalf:    return quarternote * 3; 
-            case Half:          return quarternote * 2; 
-            case DottedQuarter: return 3*eighth; 
-            case Quarter:       return quarternote; 
+            case Whole:         return quarternote * 4;
+            case DottedHalf:    return quarternote * 3;
+            case Half:          return quarternote * 2;
+            case DottedQuarter: return 3*eighth;
+            case Quarter:       return quarternote;
             case DottedEighth:  return 3*sixteenth;
             case Eighth:        return eighth;
-            case Triplet:       return quarternote/3; 
+            case Triplet:       return quarternote/3;
             case Sixteenth:     return sixteenth;
-            case ThirtySecond:  return sixteenth/2; 
+            case ThirtySecond:  return sixteenth/2;
             default:                         return 0;
        }
     }
 
     @Override
-    public 
+    public
     String toString() {
         return String.format("TimeSignature=%1$s/%2$s quarter=%3$s tempo=%4$s",
                              numerator, denominator, quarternote, tempo);
     }
-    
+
 }
 
 

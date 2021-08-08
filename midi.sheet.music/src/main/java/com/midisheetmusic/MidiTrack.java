@@ -25,10 +25,10 @@ import java.util.*;
  *
  * For each NoteOn event in the midi file, a new MidiNote is created
  * and added to the track, using the AddNote() method.
- * 
+ *
  * The NoteOff() method is called when a NoteOff event is encountered,
  * in order to update the duration of the MidiNote.
- */ 
+ */
 public class MidiTrack {
     private int tracknum;                 /** The track number */
     private ArrayList<MidiNote> notes;    /** List of Midi notes */
@@ -40,7 +40,7 @@ public class MidiTrack {
         this.tracknum = tracknum;
         notes = new ArrayList<MidiNote>(20);
         instrument = 0;
-    } 
+    }
 
     /** Create a MidiTrack based on the Midi events.  Extract the NoteOn/NoteOff
      *  events to gather the list of MidiNotes.
@@ -49,7 +49,7 @@ public class MidiTrack {
         this.tracknum = tracknum;
         notes = new ArrayList<MidiNote>(events.size());
         instrument = 0;
- 
+
         for (MidiEvent mevent : events) {
             if (mevent.EventFlag == MidiFile.EventNoteOn && mevent.Velocity > 0) {
                 MidiNote note = new MidiNote(mevent.StartTime, mevent.Channel, mevent.Notenumber, 0);
@@ -114,7 +114,7 @@ public class MidiTrack {
     }
 
     /** Add a lyric event to this track */
-    public void AddLyric(MidiEvent mevent) { 
+    public void AddLyric(MidiEvent mevent) {
         if (lyrics == null) {
             lyrics = new ArrayList<MidiEvent>();
         }

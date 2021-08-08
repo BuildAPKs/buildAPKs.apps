@@ -33,11 +33,11 @@ class PairInt {
  * u1     - One byte
  * u2     - Two bytes (big endian)
  * u4     - Four bytes (big endian)
- * varlen - A variable length integer, that can be 1 to 4 bytes. The 
- *          integer ends when you encounter a byte that doesn't have 
+ * varlen - A variable length integer, that can be 1 to 4 bytes. The
+ *          integer ends when you encounter a byte that doesn't have
  *          the 8th bit set (a byte less than 0x80).
  * len?   - The length of the data depends on some code
- *          
+ *
  *
  * The Midi files begins with the main Midi header
  * u4 = The four ascii characters 'MThd'
@@ -55,7 +55,7 @@ class PairInt {
  *
  * u4 = The four ascii characters 'MTrk'
  * u4 = Amount of track data, in bytes.
- * 
+ *
  * The track data consists of a series of Midi events.  Each Midi event
  * has the following format:
  *
@@ -88,7 +88,7 @@ class PairInt {
  *             0x80 is for channel 1, 0x8F is for channel 16.
  * Data:  u1 - The note number, 0-127.  Middle C is 60 (0x3C)
  *        u1 - The note velocity.  This should be 0
- * 
+ *
  * Code:  u1 - 0x90 thru 0x9F - Note On event.
  *             0x90 is for channel 1, 0x9F is for channel 16.
  * Data:  u1 - The note number, 0-127.  Middle C is 60 (0x3C)
@@ -137,7 +137,7 @@ class PairInt {
  *           u1[varlen] - Track Name
  *
  * Metacode: u1         - 0x58  Time Signature
- *           varlen     - 4 
+ *           varlen     - 4
  *           u1         - numerator
  *           u1         - log2(denominator)
  *           u1         - clocks in metronome click
@@ -151,7 +151,7 @@ class PairInt {
  *                        1 if minor key
  *
  * Metacode: u1         - 0x51  Tempo
- *           varlen     - 3  
+ *           varlen     - 3
  *           u3         - quarter note length in microseconds
  */
 
@@ -171,7 +171,7 @@ class PairInt {
  * The methods ReadTrack() and ReadMetaEvent() are helper functions called
  * by the constructor during the parsing.
  *
- * After the MidiFile is parsed and created, the user can retrieve the 
+ * After the MidiFile is parsed and created, the user can retrieve the
  * tracks and notes by using the property Tracks and Tracks.Notes.
  *
  * There are two methods for modifying the midi data based on the menu
@@ -187,9 +187,9 @@ class PairInt {
  *     RoundDurations()
  *
  * - ChangeSound()
- *   Apply the menu options to the MIDI music data, and save the modified midi data 
- *   to a file, for playback. 
- *   
+ *   Apply the menu options to the MIDI music data, and save the modified midi data
+ *   to a file, for playback.
+ *
  */
 
 public class MidiFile {
@@ -371,13 +371,13 @@ public class MidiFile {
     private String EventName(int ev) {
         if (ev >= EventNoteOff && ev < EventNoteOff + 16)
             return "NoteOff";
-        else if (ev >= EventNoteOn && ev < EventNoteOn + 16) 
+        else if (ev >= EventNoteOn && ev < EventNoteOn + 16)
             return "NoteOn";
-        else if (ev >= EventKeyPressure && ev < EventKeyPressure + 16) 
+        else if (ev >= EventKeyPressure && ev < EventKeyPressure + 16)
             return "KeyPressure";
-        else if (ev >= EventControlChange && ev < EventControlChange + 16) 
+        else if (ev >= EventControlChange && ev < EventControlChange + 16)
             return "ControlChange";
-        else if (ev >= EventProgramChange && ev < EventProgramChange + 16) 
+        else if (ev >= EventProgramChange && ev < EventProgramChange + 16)
             return "ProgramChange";
         else if (ev >= EventChannelPressure && ev < EventChannelPressure + 16)
             return "ChannelPressure";
@@ -445,7 +445,7 @@ public class MidiFile {
      * class.  After reading the midi file, this object will contain:
      * - The raw list of midi events
      * - The Time Signature of the song
-     * - All the tracks in the song which contain notes. 
+     * - All the tracks in the song which contain notes.
      * - The number, starttime, and duration of each note.
      */
     private void parse(byte[] rawdata) {
@@ -460,13 +460,13 @@ public class MidiFile {
         if (!id.equals("MThd")) {
             throw new MidiFileException("Doesn't start with MThd", 0);
         }
-        len = file.ReadInt(); 
+        len = file.ReadInt();
         if (len !=  6) {
             throw new MidiFileException("Bad MThd header", 4);
         }
         trackmode = (short) file.ReadShort();
         int num_tracks = file.ReadShort();
-        quarternote = file.ReadShort(); 
+        quarternote = file.ReadShort();
 
         allevents = new ArrayList<ArrayList<MidiEvent>>();
         for (int tracknum = 0; tracknum < num_tracks; tracknum++) {
@@ -565,13 +565,13 @@ public class MidiFile {
             mevent.DeltaTime = deltatime;
             mevent.StartTime = starttime;
 
-            // if (peekevent >= EventNoteOff) { 
+            // if (peekevent >= EventNoteOff) {
             if (peekevent < 0) {
-                mevent.HasEventflag = true; 
+                mevent.HasEventflag = true;
                 eventflag = file.ReadByte();
             }
 
-            //Log.e("debug",  "offset " + startoffset + 
+            //Log.e("debug",  "offset " + startoffset +
             //                " event " + eventflag + " " + EventName(eventflag) +
             //                " start " + starttime + " delta " + mevent.DeltaTime);
 
@@ -587,33 +587,33 @@ public class MidiFile {
                 mevent.Notenumber = file.ReadByte();
                 mevent.Velocity = file.ReadByte();
             }
-            else if (eventflag >= EventKeyPressure && 
+            else if (eventflag >= EventKeyPressure &&
                      eventflag < EventKeyPressure + 16) {
                 mevent.EventFlag = EventKeyPressure;
                 mevent.Channel = ((byte)(eventflag - EventKeyPressure));
                 mevent.Notenumber = file.ReadByte();
                 mevent.KeyPressure = file.ReadByte();
             }
-            else if (eventflag >= EventControlChange && 
+            else if (eventflag >= EventControlChange &&
                      eventflag < EventControlChange + 16) {
                 mevent.EventFlag = EventControlChange;
                 mevent.Channel = ((byte)(eventflag - EventControlChange));
                 mevent.ControlNum = file.ReadByte();
                 mevent.ControlValue = file.ReadByte();
             }
-            else if (eventflag >= EventProgramChange && 
+            else if (eventflag >= EventProgramChange &&
                      eventflag < EventProgramChange + 16) {
                 mevent.EventFlag = EventProgramChange;
                 mevent.Channel = ((byte)(eventflag - EventProgramChange));
                 mevent.Instrument = file.ReadByte();
             }
-            else if (eventflag >= EventChannelPressure && 
+            else if (eventflag >= EventChannelPressure &&
                      eventflag < EventChannelPressure + 16) {
                 mevent.EventFlag = EventChannelPressure;
                 mevent.Channel = ((byte)(eventflag - EventChannelPressure));
                 mevent.ChanPressure = file.ReadByte();
             }
-            else if (eventflag >= EventPitchBend && 
+            else if (eventflag >= EventPitchBend &&
                      eventflag < EventPitchBend + 16) {
                 mevent.EventFlag = EventPitchBend;
                 mevent.Channel = ((byte)(eventflag - EventPitchBend));
@@ -637,7 +637,7 @@ public class MidiFile {
                 if (mevent.Metaevent == MetaEventTimeSignature) {
                     if (mevent.Metalength < 2) {
                         throw new MidiFileException(
-                          "Meta Event Time Signature len == " + mevent.Metalength  + 
+                          "Meta Event Time Signature len == " + mevent.Metalength  +
                           " != 4", file.GetOffset());
                     }
                     else {
@@ -651,8 +651,8 @@ public class MidiFile {
                           "Meta Event Tempo len == " + mevent.Metalength +
                           " != 3", file.GetOffset());
                     }
-                    mevent.Tempo = ((mevent.Value[0] & 0xFF) << 16) | 
-                                   ((mevent.Value[1] & 0xFF) << 8) | 
+                    mevent.Tempo = ((mevent.Value[0] & 0xFF) << 16) |
+                                   ((mevent.Value[1] & 0xFF) << 8) |
                                     (mevent.Value[2] & 0xFF);
                 }
                 else if (mevent.Metaevent == MetaEventEndOfTrack) {
@@ -661,7 +661,7 @@ public class MidiFile {
             }
             else {
                 throw new MidiFileException("Unknown event " + mevent.EventFlag,
-                                             file.GetOffset()-1); 
+                                             file.GetOffset()-1);
             }
         }
 
@@ -739,14 +739,14 @@ public class MidiFile {
                 case EventChannelPressure: len += 1; break;
                 case EventPitchBend: len += 2; break;
 
-                case SysexEvent1: 
+                case SysexEvent1:
                 case SysexEvent2:
-                    len += VarlenToBytes(mevent.Metalength, buf, 0); 
+                    len += VarlenToBytes(mevent.Metalength, buf, 0);
                     len += mevent.Metalength;
                     break;
-                case MetaEvent: 
-                    len += 1; 
-                    len += VarlenToBytes(mevent.Metalength, buf, 0); 
+                case MetaEvent:
+                    len += 1;
+                    len += VarlenToBytes(mevent.Metalength, buf, 0);
                     len += mevent.Metalength;
                     break;
                 default: break;
@@ -764,7 +764,7 @@ public class MidiFile {
         }
     }
 
-            
+
     /** Write the given list of Midi events to a stream/file.
      *  This method is used for sound playback, for creating new Midi files
      *  with the tempo, transpose, etc changed.
@@ -772,7 +772,7 @@ public class MidiFile {
      *  Return true on success, and false on error.
      */
     private static void
-    WriteEvents(FileOutputStream file, ArrayList<ArrayList<MidiEvent>> allevents, 
+    WriteEvents(FileOutputStream file, ArrayList<ArrayList<MidiEvent>> allevents,
                   int trackmode, int quarter) throws IOException {
 
         byte[] buf = new byte[16384];
@@ -781,13 +781,13 @@ public class MidiFile {
         file.write("MThd".getBytes("US-ASCII"), 0, 4);
         IntToBytes(6, buf, 0);
         file.write(buf, 0, 4);
-        buf[0] = (byte)(trackmode >> 8); 
+        buf[0] = (byte)(trackmode >> 8);
         buf[1] = (byte)(trackmode & 0xFF);
         file.write(buf, 0, 2);
-        buf[0] = 0; 
+        buf[0] = 0;
         buf[1] = (byte)allevents.size();
         file.write(buf, 0, 2);
-        buf[0] = (byte)(quarter >> 8); 
+        buf[0] = (byte)(quarter >> 8);
         buf[1] = (byte)(quarter & 0xFF);
         file.write(buf, 0, 2);
 
@@ -876,9 +876,9 @@ public class MidiFile {
 
 
     /** Clone the list of MidiEvents */
-    private static ArrayList<ArrayList<MidiEvent>> 
+    private static ArrayList<ArrayList<MidiEvent>>
     CloneMidiEvents(ArrayList<ArrayList<MidiEvent>> origlist) {
-        ArrayList<ArrayList<MidiEvent>> newlist = 
+        ArrayList<ArrayList<MidiEvent>> newlist =
            new ArrayList<ArrayList<MidiEvent>>(origlist.size());
         for (int tracknum = 0; tracknum < origlist.size(); tracknum++) {
             ArrayList<MidiEvent> origevents = origlist.get(tracknum);
@@ -929,7 +929,7 @@ public class MidiFile {
      *  For other events, change the delta-time to 0 if they occur
      *  before the pause time.  Return the modified Midi Events.
      */
-    private static 
+    private static
     ArrayList<ArrayList<MidiEvent>> StartAtPauseTime(ArrayList<ArrayList<MidiEvent>> list, int pauseTime) {
         ArrayList<ArrayList<MidiEvent>> newlist = new ArrayList<ArrayList<MidiEvent>>(list.size());
         for (int tracknum = 0; tracknum < list.size(); tracknum++) {
@@ -978,7 +978,7 @@ public class MidiFile {
         Write(destfile, options);
     }
 
-    public void Write(FileOutputStream destfile, MidiOptions options) 
+    public void Write(FileOutputStream destfile, MidiOptions options)
       throws IOException {
         ArrayList<ArrayList<MidiEvent>> newevents = allevents;
         if (options != null) {
@@ -1004,7 +1004,7 @@ public class MidiFile {
         /* A midifile can contain tracks with notes and tracks without notes.
          * The options.tracks and options.instruments are for tracks with notes.
          * So the track numbers in 'options' may not match correctly if the
-         * midi file has tracks without notes. Re-compute the instruments, and 
+         * midi file has tracks without notes. Re-compute the instruments, and
          * tracks to keep.
          */
         int num_tracks = allevents.size();
@@ -1105,7 +1105,7 @@ public class MidiFile {
                 keepchannel[channel] = false;
             }
         }
-        
+
         ArrayList<ArrayList<MidiEvent>> newevents = CloneMidiEvents(allevents);
 
         /* Set the tempo at the beginning of each track */
@@ -1204,17 +1204,17 @@ public class MidiFile {
         }
     }
 
-   
+
     /* Find the highest and lowest notes that overlap this interval (starttime to endtime).
      * This method is used by SplitTrack to determine which staff (top or bottom) a note
      * should go to.
      *
-     * For more accurate SplitTrack() results, we limit the interval/duration of this note 
+     * For more accurate SplitTrack() results, we limit the interval/duration of this note
      * (and other notes) to one measure. We care only about high/low notes that are
      * reasonably close to this note.
      */
     private static void
-    FindHighLowNotes(ArrayList<MidiNote> notes, int measurelen, int startindex, 
+    FindHighLowNotes(ArrayList<MidiNote> notes, int measurelen, int startindex,
                      int starttime, int endtime, PairInt pair) {
 
         int i = startindex;
@@ -1264,7 +1264,7 @@ public class MidiFile {
     }
 
 
- 
+
     /* Split the given MidiTrack into two tracks, top and bottom.
      * The highest notes will go into top, the lowest into bottom.
      * This function is used to split piano songs into left-hand (bottom)
@@ -1288,7 +1288,7 @@ public class MidiFile {
 
         for (MidiNote note : notes) {
             int high, low, highExact, lowExact;
-            
+
             int number = note.getNumber();
             high = low = highExact = lowExact = number;
 
@@ -1306,7 +1306,7 @@ public class MidiFile {
              *   are more than an octave apart, choose the closest note.
              * - If the high and low notes (that overlap this starttime)
              *   are more than an octave apart, choose the closest note.
-             * - Else, look at the previous high/low notes that were more than an 
+             * - Else, look at the previous high/low notes that were more than an
              *   octave apart.  Choose the closeset note.
              */
             PairInt pair = new PairInt();
@@ -1327,7 +1327,7 @@ public class MidiFile {
                 else {
                     bottom.AddNote(note);
                 }
-            } 
+            }
             else if (high - number > 12 || number - low > 12) {
                 if (high - number <= number - low) {
                     top.AddNote(note);
@@ -1335,7 +1335,7 @@ public class MidiFile {
                 else {
                     bottom.AddNote(note);
                 }
-            } 
+            }
             else if (highExact - lowExact > 12) {
                 if (highExact - number <= number - lowExact) {
                     top.AddNote(note);
@@ -1377,7 +1377,7 @@ public class MidiFile {
     }
 
 
-    /** Combine the notes in the given tracks into a single MidiTrack. 
+    /** Combine the notes in the given tracks into a single MidiTrack.
      *  The individual tracks are already sorted.  To merge them, we
      *  use a mergesort-like algorithm.
      */
@@ -1435,7 +1435,7 @@ public class MidiFile {
             if ((prevnote != null) && (prevnote.getStartTime() == lowestnote.getStartTime()) &&
                 (prevnote.getNumber() == lowestnote.getNumber()) ) {
 
-                /* Don't add duplicate notes, with the same start time and number */        
+                /* Don't add duplicate notes, with the same start time and number */
                 if (lowestnote.getDuration() > prevnote.getDuration()) {
                     prevnote.setDuration(lowestnote.getDuration());
                 }
@@ -1445,17 +1445,17 @@ public class MidiFile {
                 prevnote = lowestnote;
             }
         }
-    
+
         return result;
     }
 
 
     /** Combine the notes in all the tracks given into two MidiTracks,
      * and return them.
-     * 
+     *
      * This function is intended for piano songs, when we want to display
-     * a left-hand track and a right-hand track.  The lower notes go into 
-     * the left-hand track, and the higher notes go into the right hand 
+     * a left-hand track and a right-hand track.  The lower notes go into
+     * the left-hand track, and the higher notes go into the right hand
      * track.
      */
     public static ArrayList<MidiTrack> CombineToTwoTracks(ArrayList<MidiTrack> tracks, int measurelen)
@@ -1617,7 +1617,7 @@ public class MidiFile {
     /** Split the given track into multiple tracks, separating each
      * channel into a separate track.
      */
-    private static ArrayList<MidiTrack> 
+    private static ArrayList<MidiTrack>
     SplitChannels(MidiTrack origtrack, ArrayList<MidiEvent> events) {
 
         /* Find the instrument used for each channel */
@@ -1635,7 +1635,7 @@ public class MidiFile {
             for (MidiTrack track : result) {
                 if (note.getChannel() == track.getNotes().get(0).getChannel()) {
                     foundchannel = true;
-                    track.AddNote(note); 
+                    track.AddNote(note);
                 }
             }
             if (!foundchannel) {
@@ -1645,7 +1645,7 @@ public class MidiFile {
                 result.add(track);
             }
         }
-        ArrayList<MidiEvent> lyrics = origtrack.getLyrics(); 
+        ArrayList<MidiEvent> lyrics = origtrack.getLyrics();
         if (lyrics != null) {
             for (MidiEvent lyricEvent : lyrics) {
                 for (MidiTrack track : result) {
@@ -1661,7 +1661,7 @@ public class MidiFile {
 
     /** Guess the measure length.  We assume that the measure
      * length must be between 0.5 seconds and 4 seconds.
-     * Take all the note start times that fall between 0.5 and 
+     * Take all the note start times that fall between 0.5 and
      * 4 seconds, and return the starttimes.
      */
     public ListInt

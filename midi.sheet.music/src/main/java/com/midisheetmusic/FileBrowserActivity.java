@@ -95,7 +95,7 @@ public class FileBrowserActivity extends ListActivity {
                     }
                     else if (filename.endsWith(".mid") || filename.endsWith(".MID") ||
                              filename.endsWith(".midi") || filename.endsWith(".MIDI")) {
-                        
+
                         Uri uri = Uri.parse("file://" + file.getAbsolutePath());
                         FileUri fileuri = new FileUri(uri, uri.getLastPathSegment());
                         sortedFiles.add(fileuri);
@@ -117,7 +117,7 @@ public class FileBrowserActivity extends ListActivity {
         adapter = new IconArrayAdapter<FileUri>(this, android.R.layout.simple_list_item_1, filelist);
         this.setListAdapter(adapter);
     }
-    
+
 
     /** When a user selects an item:
      * - If it's a directory, load that directory.
@@ -134,7 +134,7 @@ public class FileBrowserActivity extends ListActivity {
         else {
             ChooseSongActivity.openFile(file);
         }
-    }  
+    }
 }
 
 

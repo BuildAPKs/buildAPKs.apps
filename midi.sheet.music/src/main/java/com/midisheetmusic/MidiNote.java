@@ -26,7 +26,7 @@ import java.util.*;
  *             The channels for the NoteOn and NoteOff events must be
  *             the same.
  * notenumber - The note number, from 0 to 127.  Middle C is 60.
- * duration  - The time duration (measured in pulses) after which the 
+ * duration  - The time duration (measured in pulses) after which the
  *             note is released.
  *
  * A MidiNote is created when we encounter a NoteOff event.  The duration
@@ -88,7 +88,7 @@ public class MidiNote implements Comparator<MidiNote> {
     }
 
     @Override
-    public 
+    public
     String toString() {
         String[] scale = new String[]{ "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
         return String.format("MidiNote channel=%1$s number=%2$s %3$s start=%4$s duration=%5$s",

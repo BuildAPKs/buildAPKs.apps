@@ -40,7 +40,7 @@ public class MidiFileReader {
     /** Create a new MidiFileReader for the given filename */
     /** Not used
     public MidiFileReader(String filename) {
-        try { 
+        try {
             File info = new File(filename);
             FileInputStream file = new FileInputStream(filename);
             data = new byte[ (int)info.length() ];
@@ -84,7 +84,7 @@ public class MidiFileReader {
     }
 
     /** Read a byte from the file */
-    public byte ReadByte() { 
+    public byte ReadByte() {
         checkRead(1);
         byte x = data[parse_offset];
         parse_offset++;
@@ -105,7 +105,7 @@ public class MidiFileReader {
     /** Read a 16-bit short from the file */
     public int ReadShort() {
         checkRead(2);
-        int x = ((data[parse_offset] & 0xFF) << 8) | 
+        int x = ((data[parse_offset] & 0xFF) << 8) |
                  (data[parse_offset+1] & 0xFF);
         parse_offset += 2;
         return x;
@@ -114,9 +114,9 @@ public class MidiFileReader {
     /** Read a 32-bit int from the file */
     public int ReadInt() {
         checkRead(4);
-        int x =  ((data[parse_offset] & 0xFF) << 24) | 
+        int x =  ((data[parse_offset] & 0xFF) << 24) |
                  ((data[parse_offset+1] & 0xFF) << 16) |
-                 ((data[parse_offset+2] & 0xFF) << 8) | 
+                 ((data[parse_offset+2] & 0xFF) << 8) |
                   (data[parse_offset+3] & 0xFF);
         parse_offset += 4;
         return x;
@@ -159,7 +159,7 @@ public class MidiFileReader {
         return (int)result;
     }
 
-    /** Skip over the given number of bytes */ 
+    /** Skip over the given number of bytes */
     public void Skip(int amount) {
         checkRead(amount);
         parse_offset += amount;

@@ -23,7 +23,7 @@ import android.app.Activity;
 
 /** @class FileUri
  * Represents a reference to a file.
- * The file could be either in the /assets directory, 
+ * The file could be either in the /assets directory,
  * the internal storage, or the external storage.
  */
 public class FileUri implements Comparator<FileUri> {
@@ -81,7 +81,7 @@ public class FileUri implements Comparator<FileUri> {
         try {
             byte[] data;
             int totallen, len, offset;
-        
+
             // First, determine the file length
             data = new byte[4096];
             InputStream file;
@@ -92,7 +92,7 @@ public class FileUri implements Comparator<FileUri> {
                 file = asset.open(filepath);
             }
             else if (uriString.startsWith("content://")) {
-                ContentResolver resolver = activity.getContentResolver(); 
+                ContentResolver resolver = activity.getContentResolver();
                 file = resolver.openInputStream(uri);
             }
             else {
@@ -105,7 +105,7 @@ public class FileUri implements Comparator<FileUri> {
                 len = file.read(data, 0, 4096);
             }
             file.close();
-        
+
             // Now read in the data
             offset = 0;
             data = new byte[totallen];
@@ -116,7 +116,7 @@ public class FileUri implements Comparator<FileUri> {
                 file = asset.open(filepath);
             }
             else if (uriString.startsWith("content://")) {
-                ContentResolver resolver = activity.getContentResolver(); 
+                ContentResolver resolver = activity.getContentResolver();
                 file = resolver.openInputStream(uri);
             }
             else {
@@ -168,7 +168,7 @@ public class FileUri implements Comparator<FileUri> {
             return null;
         }
     }
-    
+
     public static boolean equalStrings(String s1, String s2) {
         if ((s1 == null && s2 != null) ||
             (s1 != null && s2 == null)) {
@@ -179,7 +179,7 @@ public class FileUri implements Comparator<FileUri> {
         }
         return s1.equals(s2);
     }
-    
+
     /* Return true if the two FileUri json objects are equal */
     public static boolean equalJson(JSONObject obj1, JSONObject obj2) {
         String displayName1 = obj1.optString("displayName", null);

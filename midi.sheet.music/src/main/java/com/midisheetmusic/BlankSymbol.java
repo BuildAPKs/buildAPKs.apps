@@ -15,13 +15,13 @@ package com.midisheetmusic;
 import android.graphics.*;
 
 
-/** @class BlankSymbol 
+/** @class BlankSymbol
  * The Blank symbol is a music symbol that doesn't draw anything.  This
- * symbol is used for alignment purposes, to align notes in different 
+ * symbol is used for alignment purposes, to align notes in different
  * staffs which occur at the same time.
  */
 public class BlankSymbol implements MusicSymbol {
-    private int starttime; 
+    private int starttime;
     private int width;
 
     /** Create a new BlankSymbol with the given starttime and width */
@@ -60,7 +60,7 @@ public class BlankSymbol implements MusicSymbol {
     public void Draw(Canvas canvas, Paint paint, int ytop) {}
 
     public String toString() {
-        return String.format("BlankSymbol starttime=%1$s width=%2$s", 
+        return String.format("BlankSymbol starttime=%1$s width=%2$s",
                              starttime, width);
     }
 }

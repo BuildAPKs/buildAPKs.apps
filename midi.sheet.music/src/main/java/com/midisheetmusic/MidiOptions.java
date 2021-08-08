@@ -104,7 +104,7 @@ public class MidiOptions implements Serializable {
         combineInterval = 40;
         shade1Color = Color.rgb(210, 205, 220);
         shade2Color = Color.rgb(150, 200, 220);
-        
+
 
         tempo = midifile.getTime().getTempo();
         pauseTime = 0;
@@ -140,9 +140,9 @@ public class MidiOptions implements Serializable {
             }
 
             json.put("versionCode", 7);
-            json.put("tracks", jsonTracks); 
-            json.put("mute", jsonMute); 
-            json.put("instruments", jsonInstruments); 
+            json.put("tracks", jsonTracks);
+            json.put("mute", jsonMute);
+            json.put("instruments", jsonInstruments);
             json.put("useDefaultInstruments", useDefaultInstruments);
             json.put("scrollVert", scrollVert);
             json.put("showPiano", showPiano);
@@ -158,7 +158,7 @@ public class MidiOptions implements Serializable {
             json.put("playMeasuresInLoop", playMeasuresInLoop);
             json.put("playMeasuresInLoopStart", playMeasuresInLoopStart);
             json.put("playMeasuresInLoopEnd", playMeasuresInLoopEnd);
-            
+
             return json.toString();
         }
         catch (JSONException e) {
@@ -182,18 +182,18 @@ public class MidiOptions implements Serializable {
             for (int i = 0; i < options.tracks.length; i++) {
                 options.tracks[i] = jsonTracks.getBoolean(i);
             }
- 
+
             JSONArray jsonMute = json.getJSONArray("mute");
             options.mute = new boolean[jsonMute.length()];
             for (int i = 0; i < options.mute.length; i++) {
                 options.mute[i] = jsonMute.getBoolean(i);
-            } 
+            }
 
             JSONArray jsonInstruments = json.getJSONArray("instruments");
             options.instruments = new int[jsonInstruments.length()];
             for (int i = 0; i < options.instruments.length; i++) {
                 options.instruments[i] = jsonInstruments.getInt(i);
-            } 
+            }
 
             if (json.has("time")) {
                 JSONObject jsonTime = json.getJSONObject("time");
@@ -245,7 +245,7 @@ public class MidiOptions implements Serializable {
             }
         }
         if (saved.time != null) {
-            time = new TimeSignature(saved.time.getNumerator(), saved.time.getDenominator(), 
+            time = new TimeSignature(saved.time.getNumerator(), saved.time.getDenominator(),
                     saved.time.getQuarter(), saved.time.getTempo());
         }
 
@@ -265,7 +265,7 @@ public class MidiOptions implements Serializable {
         playMeasuresInLoopStart = saved.playMeasuresInLoopStart;
         playMeasuresInLoopEnd = saved.playMeasuresInLoopEnd;
     }
- 
+
 
     @Override
     public String toString() {
@@ -324,10 +324,10 @@ public class MidiOptions implements Serializable {
         options.lastMeasure = lastMeasure;
         options.tempo = tempo;
         options.pauseTime = pauseTime;
-        
+
         options.shifttime = shifttime;
         options.largeNoteSize = largeNoteSize;
-        return options; 
+        return options;
     }
 }
 

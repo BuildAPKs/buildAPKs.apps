@@ -87,7 +87,7 @@ public class SymbolWidths {
             int key = maxwidths.getKey(i);
             starttimes[i] = key;
         }
-        Arrays.sort(starttimes); 
+        Arrays.sort(starttimes);
     }
 
     /** Create a table of the symbol widths for each starttime in the track. */

@@ -62,7 +62,7 @@ public class ScrollAnimation {
         downTime = prevMoveTime = moveTime = upTime = flingStartTime = 0;
         flingVelocity = 0;
         scrollTimer.removeCallbacks(flingScroll);
-    } 
+    }
 
     /** Handle touch/motion events to implement scrolling the sheet music.
      *  - On down touch, store the (x,y) of the touch
@@ -93,14 +93,14 @@ public class ScrollAnimation {
 
                 deltaX = moveX - event.getX();
                 deltaY = moveY - event.getY();
-                
+
                 prevMoveX = moveX;
                 prevMoveY = moveY;
                 prevMoveTime = moveTime;
-                
+
                 moveX = event.getX();
                 moveY = event.getY();
-                moveTime = currentTime; 
+                moveTime = currentTime;
 
                 if (scrollVert) {
                     listener.scrollUpdate(0, (int)deltaY);
@@ -109,7 +109,7 @@ public class ScrollAnimation {
                     if ((Math.abs(deltaY) > Math.abs(deltaX)) || (Math.abs(deltaY) > 4)) {
                         listener.scrollUpdate((int)deltaX, (int)deltaY);
                     }
-                    else { 
+                    else {
                         listener.scrollUpdate((int)deltaX, 0);
                     }
                 }
@@ -187,7 +187,7 @@ public class ScrollAnimation {
 
         float velocity = flingVelocity * scale;
         float delta = velocity * 1.0f/timerInterval;
-        
+
         if (scrollVert) {
             listener.scrollUpdate(0, (int)delta);
         }
@@ -201,4 +201,4 @@ public class ScrollAnimation {
     };
 
 }
- 
+

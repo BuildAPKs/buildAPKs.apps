@@ -36,11 +36,11 @@ import android.graphics.drawable.ColorDrawable;
  *  - Change the colors for shading the left/right hands.
  *  - Whether to display measure numbers
  *  - Play selected measures in a loop
- * 
+ *
  * When created, pass an Intent parameter containing MidiOptions.
  * When destroyed, this activity passes the result MidiOptions to the Intent.
  */
-public class SettingsActivity extends PreferenceActivity 
+public class SettingsActivity extends PreferenceActivity
     implements Preference.OnPreferenceChangeListener, Preference.OnPreferenceClickListener {
 
     public static final String settingsID = "settings";
@@ -64,7 +64,7 @@ public class SettingsActivity extends PreferenceActivity
     private ListPreference key;                   /** Key Signature to use */
     private ListPreference time;                  /** Time Signature to use */
     private ListPreference combineInterval;       /** Interval (msec) to combine notes */
-    
+
     private ColorPreference shade1Color;          /** Right-hand color */
     private ColorPreference shade2Color;          /** Left-hand color */
 
@@ -133,7 +133,7 @@ public class SettingsActivity extends PreferenceActivity
     public boolean onPreferenceClick(Preference preference) {
         if (preference == restoreDefaults) {
             options = defaultOptions.copy();
-            createView(); 
+            createView();
         }
         else if (preference == setAllToPiano) {
             for (int i = 0; i < options.instruments.length; i++) {
@@ -330,7 +330,7 @@ public class SettingsActivity extends PreferenceActivity
 
     /** Create the "Play Measures in a Loop" preference.
      *
-     *  Note that we display the measure numbers starting at 1, 
+     *  Note that we display the measure numbers starting at 1,
      *  but the actual playMeasuresInLoopStart field starts at 0.
      */
     private void createPlayMeasuresInLoopPrefs(PreferenceScreen root) {
@@ -378,7 +378,7 @@ public class SettingsActivity extends PreferenceActivity
         restoreDefaults.setTitle(R.string.restore_defaults);
         restoreDefaults.setOnPreferenceClickListener(this);
         root.addPreference(restoreDefaults);
-    } 
+    }
 
     /** Update the MidiOptions based on the preferences selected. */
     private void updateOptions() {
@@ -434,7 +434,7 @@ public class SettingsActivity extends PreferenceActivity
         setResult(Activity.RESULT_OK, intent);
         super.onBackPressed();
     }
-        
+
 }
 
 

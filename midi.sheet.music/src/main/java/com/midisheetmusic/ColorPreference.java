@@ -23,7 +23,7 @@ import android.content.*;
  *  This Preference displays text, plus an additional color box
  */
 
-public class ColorPreference extends Preference 
+public class ColorPreference extends Preference
         implements ColorChangedListener {
 
     private View colorview;    /* The view displaying the selected color */
@@ -36,8 +36,8 @@ public class ColorPreference extends Preference
         setWidgetLayoutResource(R.layout.color_preference);
     }
 
-    public void setColor(int value) { 
-        color = value; 
+    public void setColor(int value) {
+        color = value;
         if (colorview != null) {
             colorview.setBackgroundColor(color);
         }

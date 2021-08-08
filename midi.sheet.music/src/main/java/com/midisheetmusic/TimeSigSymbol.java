@@ -64,8 +64,8 @@ public class TimeSigSymbol implements MusicSymbol {
     public int getStartTime() { return -1; }
 
     /** Get the minimum width (in pixels) needed to draw this symbol */
-    public int getMinWidth() { 
-        if (candraw) 
+    public int getMinWidth() {
+        if (candraw)
             return images[2].getWidth() * SheetMusic.NoteHeight * 2 /images[2].getHeight();
         else
             return 0;
@@ -85,12 +85,12 @@ public class TimeSigSymbol implements MusicSymbol {
     /** Get the number of pixels this symbol extends below the staff. Used
      *  to determine the minimum height needed for the staff (Staff.FindBounds).
      */
-    public int getBelowStaff() { return 0; } 
+    public int getBelowStaff() { return 0; }
 
     /** Draw the symbol.
      * @param ytop The ylocation (in pixels) where the top of the staff starts.
      */
-    public 
+    public
     void Draw(Canvas canvas, Paint paint, int ytop) {
         if (!candraw)
             return;

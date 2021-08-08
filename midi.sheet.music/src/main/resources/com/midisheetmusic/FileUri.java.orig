@@ -23,14 +23,14 @@ import android.app.Activity;
 
 /** @class FileUri
  * Represents a reference to a file.
- * The file could be either in the /assets directory, 
+ * The file could be either in the /assets directory,
  * the internal storage, or the external storage.
  */
 public class FileUri implements Comparator<FileUri> {
     public static final int FileUriAsset = 1;
     public static final int FileUriContentProvider = 2;
     public static final int FileUriFilepath = 3;
-    
+
     private int type;                 /** The type of file reference */
 
     private AssetManager asset;       /** For reading files in /assets */
@@ -109,7 +109,7 @@ public class FileUri implements Comparator<FileUri> {
         try {
             byte[] data;
             int totallen, len, offset;
-        
+
             // First, determine the file length
             data = new byte[4096];
             InputStream file;
@@ -129,7 +129,7 @@ public class FileUri implements Comparator<FileUri> {
                 len = file.read(data, 0, 4096);
             }
             file.close();
-        
+
             // Now read in the data
             offset = 0;
             data = new byte[totallen];
@@ -212,7 +212,7 @@ public class FileUri implements Comparator<FileUri> {
             return null;
         }
     }
-    
+
     public static boolean equalStrings(String s1, String s2) {
         if ((s1 == null && s2 != null) ||
             (s1 != null && s2 == null)) {
@@ -223,7 +223,7 @@ public class FileUri implements Comparator<FileUri> {
         }
         return s1.equals(s2);
     }
-    
+
     /* Return true if the two FileUri json objects are equal */
     public static boolean equalJson(JSONObject obj1, JSONObject obj2) {
         int type1 = obj1.optInt("type", 0);
@@ -236,7 +236,7 @@ public class FileUri implements Comparator<FileUri> {
         String filepath2 = obj2.optString("filepath", null);
         String uriString2 = obj2.optString("uri", null);
 
-        return (type1 == type2 && 
+        return (type1 == type2 &&
                 equalStrings(displayName1, displayName2) &&
                 equalStrings(filepath1, filepath2) &&
                 equalStrings(uriString1, uriString2) );

@@ -28,7 +28,7 @@ public class RestSymbol implements MusicSymbol {
     /** Create a new rest symbol with the given start time and duration */
     public RestSymbol(int start, NoteDuration dur) {
         starttime = start;
-        duration = dur; 
+        duration = dur;
         width = getMinWidth();
     }
 
@@ -44,7 +44,7 @@ public class RestSymbol implements MusicSymbol {
     public void setWidth(int value) { width = value; }
 
     /** Get the minimum width (in pixels) needed to draw this symbol */
-    public int getMinWidth() { 
+    public int getMinWidth() {
         return 2 * SheetMusic.NoteHeight + SheetMusic.NoteHeight/2;
     }
 
@@ -61,7 +61,7 @@ public class RestSymbol implements MusicSymbol {
     /** Draw the symbol.
      * @param ytop The ylocation (in pixels) where the top of the staff starts.
      */
-    public 
+    public
     void Draw(Canvas canvas, Paint paint, int ytop) {
         /* Align the rest symbol to the right */
         canvas.translate(getWidth() - getMinWidth(), 0);
@@ -126,16 +126,16 @@ public class RestSymbol implements MusicSymbol {
 
         paint.setStrokeWidth(SheetMusic.LineSpace/2);
         if (SheetMusic.NoteHeight == 6) {
-            canvas.drawLine(xend, y + 1 + 3*SheetMusic.NoteHeight/4, 
+            canvas.drawLine(xend, y + 1 + 3*SheetMusic.NoteHeight/4,
                             x/2, y + 1 + 3*SheetMusic.NoteHeight/4, paint);
         }
         else {  /* NoteHeight == 8 */
-            canvas.drawLine(xend, y + 3*SheetMusic.NoteHeight/4, 
+            canvas.drawLine(xend, y + 3*SheetMusic.NoteHeight/4,
                             x/2, y + 3*SheetMusic.NoteHeight/4, paint);
         }
 
         paint.setStrokeWidth(1);
-        canvas.drawLine(0, y + 2*SheetMusic.NoteHeight/3 + 1, 
+        canvas.drawLine(0, y + 2*SheetMusic.NoteHeight/3 + 1,
                         xend - 1, y + 3*SheetMusic.NoteHeight/2, paint);
     }
 
@@ -144,15 +144,15 @@ public class RestSymbol implements MusicSymbol {
      */
     public void DrawEighth(Canvas canvas, Paint paint, int ytop) {
         int y = ytop + SheetMusic.NoteHeight - 1;
-        RectF rect = new RectF(0, y+1, 
+        RectF rect = new RectF(0, y+1,
                                SheetMusic.LineSpace-1, y+1 + SheetMusic.LineSpace-1);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawOval(rect, paint);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(1);
-        canvas.drawLine((SheetMusic.LineSpace-2)/2, y + SheetMusic.LineSpace-1, 
+        canvas.drawLine((SheetMusic.LineSpace-2)/2, y + SheetMusic.LineSpace-1,
                         3*SheetMusic.LineSpace/2, y + SheetMusic.LineSpace/2, paint);
-        canvas.drawLine(3*SheetMusic.LineSpace/2, y + SheetMusic.LineSpace/2, 
+        canvas.drawLine(3*SheetMusic.LineSpace/2, y + SheetMusic.LineSpace/2,
                         3*SheetMusic.LineSpace/4, y + SheetMusic.NoteHeight*2, paint);
     }
 

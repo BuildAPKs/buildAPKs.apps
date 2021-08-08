@@ -17,7 +17,7 @@ import android.content.*;
 import android.content.res.*;
 
 
-/** @class ClefSymbol 
+/** @class ClefSymbol
  * A ClefSymbol represents either a Treble or Bass Clef image.
  * The clef can be either normal or small size.  Normal size is
  * used at the beginning of a new staff, on the left side.  The
@@ -56,12 +56,12 @@ public class ClefSymbol implements MusicSymbol {
     public int getStartTime() { return starttime; }
 
     /** Get the minimum width (in pixels) needed to draw this symbol */
-    public int getMinWidth() { 
+    public int getMinWidth() {
         if (smallsize)
             return SheetMusic.NoteWidth * 2;
         else
             return SheetMusic.NoteWidth * 3;
-    } 
+    }
 
     /** Get/Set the width (in pixels) of this symbol. The width is set
      * in SheetMusic.AlignSymbols() to vertically align symbols.
@@ -72,7 +72,7 @@ public class ClefSymbol implements MusicSymbol {
     /** Get the number of pixels this symbol extends above the staff. Used
      *  to determine the minimum height needed for the staff (Staff.FindBounds).
      */
-    public int getAboveStaff() { 
+    public int getAboveStaff() {
         if (clef == Clef.Treble && !smallsize)
             return SheetMusic.NoteHeight * 2;
         else
@@ -94,7 +94,7 @@ public class ClefSymbol implements MusicSymbol {
     /** Draw the symbol.
      * @param ytop The ylocation (in pixels) where the top of the staff starts.
      */
-    public 
+    public
     void Draw(Canvas canvas, Paint paint, int ytop) {
         canvas.translate(getWidth() - getMinWidth(), 0);
         int y = ytop;

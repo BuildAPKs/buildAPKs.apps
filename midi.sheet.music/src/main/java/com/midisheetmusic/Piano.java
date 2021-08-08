@@ -74,7 +74,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
     }
-    
+
     public Piano(Context context, AttributeSet attrs) {
         super(context, attrs);
         WhiteKeyWidth = 0;
@@ -123,9 +123,9 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
         BlackBorder = WhiteKeyWidth/2;
         WhiteKeyHeight = WhiteKeyWidth * 5;
         BlackKeyWidth = WhiteKeyWidth / 2;
-        BlackKeyHeight = WhiteKeyHeight * 5 / 9; 
+        BlackKeyHeight = WhiteKeyHeight * 5 / 9;
 
-        blackKeyOffsets = new int[] { 
+        blackKeyOffsets = new int[] {
             WhiteKeyWidth - BlackKeyWidth/2 - 1,
             WhiteKeyWidth + BlackKeyWidth/2 - 1,
             2*WhiteKeyWidth - BlackKeyWidth/2,
@@ -158,7 +158,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
      *  and StartTime (in pulses), so we know which notes to shade given the
      *  current pulse time.
      */
-    public void SetMidiFile(MidiFile midifile, MidiOptions options, 
+    public void SetMidiFile(MidiFile midifile, MidiOptions options,
                             MidiPlayer player) {
         if (midifile == null) {
             notes = null;
@@ -246,13 +246,13 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
                 continue;  // we draw the line between E and F above
             }
             paint.setColor(gray1);
-            canvas.drawLine(i*WhiteKeyWidth, BlackKeyHeight, 
+            canvas.drawLine(i*WhiteKeyWidth, BlackKeyHeight,
                             i*WhiteKeyWidth, WhiteKeyHeight, paint);
             paint.setColor(gray2);
-            canvas.drawLine(i*WhiteKeyWidth - 1, BlackKeyHeight+1, 
+            canvas.drawLine(i*WhiteKeyWidth - 1, BlackKeyHeight+1,
                             i*WhiteKeyWidth - 1, WhiteKeyHeight, paint);
             paint.setColor(gray3);
-            canvas.drawLine(i*WhiteKeyWidth + 1, BlackKeyHeight+1, 
+            canvas.drawLine(i*WhiteKeyWidth + 1, BlackKeyHeight+1,
                             i*WhiteKeyWidth + 1, WhiteKeyHeight, paint);
         }
 
@@ -266,10 +266,10 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
             canvas.translate(-(octave * WhiteKeyWidth * KeysPerOctave), 0);
         }
     }
- 
+
     /* Draw the Black keys */
     private void DrawBlackKeys(Canvas canvas) {
-        paint.setStyle(Paint.Style.FILL); 
+        paint.setStyle(Paint.Style.FILL);
         for (int octave = 0; octave < MaxOctave; octave++) {
             canvas.translate(octave * WhiteKeyWidth * KeysPerOctave, 0);
             for (int i = 0; i < 10; i += 2) {
@@ -278,14 +278,14 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
                 paint.setColor(gray1);
                 canvas.drawRect(x1, 0, x1 + BlackKeyWidth, BlackKeyHeight, paint);
                 paint.setColor(gray2);
-                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8, 
-                                x1+1 + BlackKeyWidth-2, 
-                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8, 
+                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8,
+                                x1+1 + BlackKeyWidth-2,
+                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8,
                                 paint);
             }
             canvas.translate(-(octave * WhiteKeyWidth * KeysPerOctave), 0);
         }
-        paint.setStyle(Paint.Style.STROKE); 
+        paint.setStyle(Paint.Style.STROKE);
     }
 
     /* Draw the black border area surrounding the piano keys.
@@ -295,28 +295,28 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
         int PianoWidth = WhiteKeyWidth * KeysPerOctave * MaxOctave;
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(gray1);
-        canvas.drawRect(margin, margin, margin + PianoWidth + BlackBorder*2, 
+        canvas.drawRect(margin, margin, margin + PianoWidth + BlackBorder*2,
                         margin + BlackBorder-2, paint);
-        canvas.drawRect(margin, margin, margin + BlackBorder, 
+        canvas.drawRect(margin, margin, margin + BlackBorder,
                         margin + WhiteKeyHeight + BlackBorder * 3, paint);
-        canvas.drawRect(margin, margin + BlackBorder + WhiteKeyHeight, 
-                        margin + BlackBorder*2 + PianoWidth, 
+        canvas.drawRect(margin, margin + BlackBorder + WhiteKeyHeight,
+                        margin + BlackBorder*2 + PianoWidth,
                         margin + BlackBorder + WhiteKeyHeight + BlackBorder*2, paint);
-        canvas.drawRect(margin + BlackBorder + PianoWidth, margin, 
-                        margin + BlackBorder + PianoWidth + BlackBorder, 
+        canvas.drawRect(margin + BlackBorder + PianoWidth, margin,
+                        margin + BlackBorder + PianoWidth + BlackBorder,
                         margin + WhiteKeyHeight + BlackBorder*3, paint);
 
         paint.setColor(gray2);
-        canvas.drawLine(margin + BlackBorder, margin + BlackBorder -1, 
-                        margin + BlackBorder +  PianoWidth, 
+        canvas.drawLine(margin + BlackBorder, margin + BlackBorder -1,
+                        margin + BlackBorder +  PianoWidth,
                         margin + BlackBorder -1, paint);
-        
+
         canvas.translate(margin + BlackBorder, margin + BlackBorder);
 
-        // Draw the gray bottoms of the white keys  
+        // Draw the gray bottoms of the white keys
         for (int i = 0; i < KeysPerOctave * MaxOctave; i++) {
-            canvas.drawRect(i*WhiteKeyWidth+1, WhiteKeyHeight+2, 
-                            i*WhiteKeyWidth+1 + WhiteKeyWidth-2, 
+            canvas.drawRect(i*WhiteKeyWidth+1, WhiteKeyHeight+2,
+                            i*WhiteKeyWidth+1 + WhiteKeyWidth-2,
                             WhiteKeyHeight+2 + BlackBorder/2, paint);
         }
         canvas.translate(-(margin + BlackBorder), -(margin + BlackBorder));
@@ -340,7 +340,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
         paint.setColor(Color.WHITE);
         for (int octave = 0; octave < MaxOctave; octave++) {
             for (int i = 0; i < KeysPerOctave; i++) {
-                canvas.drawText(names[i], 
+                canvas.drawText(names[i],
                                 (octave*KeysPerOctave + i) * WhiteKeyWidth + WhiteKeyWidth/3,
                                 WhiteKeyHeight + BlackBorder + 4, paint);
             }
@@ -378,7 +378,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
         bufferCanvas.translate(margin + BlackBorder, margin + BlackBorder);
         paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.WHITE);
-        bufferCanvas.drawRect(0, 0, 0 + WhiteKeyWidth * KeysPerOctave * MaxOctave, 
+        bufferCanvas.drawRect(0, 0, 0 + WhiteKeyWidth * KeysPerOctave * MaxOctave,
                         WhiteKeyHeight, paint);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(gray1);
@@ -417,115 +417,115 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
             x1 = 2;
             x2 = blackKeyOffsets[0] - 2;
             canvas.drawRect(x1, 0, x1 + x2 - x1, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         case 1: /* C# */
-            x1 = blackKeyOffsets[0]; 
+            x1 = blackKeyOffsets[0];
             x2 = blackKeyOffsets[1];
             canvas.drawRect(x1, 0, x1 + x2 - x1, 0 + BlackKeyHeight, paint);
             if (color == gray1) {
                 paint.setColor(gray2);
-                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8, 
-                                x1+1 + BlackKeyWidth-2, 
-                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8, 
+                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8,
+                                x1+1 + BlackKeyWidth-2,
+                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8,
                                 paint);
             }
             break;
         case 2: /* D */
             x1 = WhiteKeyWidth + 2;
             x2 = blackKeyOffsets[1] + 3;
-            x3 = blackKeyOffsets[2] - 2; 
+            x3 = blackKeyOffsets[2] - 2;
             canvas.drawRect(x2, 0, x2 + x3 - x2, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         case 3: /* D# */
-            x1 = blackKeyOffsets[2]; 
+            x1 = blackKeyOffsets[2];
             x2 = blackKeyOffsets[3];
             canvas.drawRect(x1, 0, x1 + BlackKeyWidth, 0 + BlackKeyHeight, paint);
             if (color == gray1) {
                 paint.setColor(gray2);
-                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8, 
-                                x1+1 + BlackKeyWidth-2, 
-                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8, 
+                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8,
+                                x1+1 + BlackKeyWidth-2,
+                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8,
                                 paint);
             }
             break;
         case 4: /* E */
             x1 = WhiteKeyWidth * 2 + 2;
-            x2 = blackKeyOffsets[3] + 3; 
+            x2 = blackKeyOffsets[3] + 3;
             x3 = WhiteKeyWidth * 3 - 1;
             canvas.drawRect(x2, 0, x2 + x3 - x2, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         case 5: /* F */
             x1 = WhiteKeyWidth * 3 + 2;
-            x2 = blackKeyOffsets[4] - 2; 
+            x2 = blackKeyOffsets[4] - 2;
             x3 = WhiteKeyWidth * 4 - 2;
             canvas.drawRect(x1, 0, x1 + x2 - x1, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         case 6: /* F# */
-            x1 = blackKeyOffsets[4]; 
+            x1 = blackKeyOffsets[4];
             x2 = blackKeyOffsets[5];
             canvas.drawRect(x1, 0, x1 + BlackKeyWidth, 0 + BlackKeyHeight, paint);
             if (color == gray1) {
                 paint.setColor(gray2);
-                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8, 
-                                x1+1 + BlackKeyWidth-2, 
-                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8, 
+                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8,
+                                x1+1 + BlackKeyWidth-2,
+                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8,
                                 paint);
             }
             break;
         case 7: /* G */
             x1 = WhiteKeyWidth * 4 + 2;
-            x2 = blackKeyOffsets[5] + 3; 
-            x3 = blackKeyOffsets[6] - 2; 
+            x2 = blackKeyOffsets[5] + 3;
+            x3 = blackKeyOffsets[6] - 2;
             canvas.drawRect(x2, 0, x2 + x3 - x2, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         case 8: /* G# */
-            x1 = blackKeyOffsets[6]; 
+            x1 = blackKeyOffsets[6];
             x2 = blackKeyOffsets[7];
             canvas.drawRect(x1, 0, x1 + BlackKeyWidth, 0 + BlackKeyHeight, paint);
             if (color == gray1) {
                 paint.setColor(gray2);
-                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8, 
-                                x1+1 + BlackKeyWidth-2, 
-                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8, 
+                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8,
+                                x1+1 + BlackKeyWidth-2,
+                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8,
                                 paint);
             }
             break;
         case 9: /* A */
             x1 = WhiteKeyWidth * 5 + 2;
-            x2 = blackKeyOffsets[7] + 3; 
-            x3 = blackKeyOffsets[8] - 2; 
+            x2 = blackKeyOffsets[7] + 3;
+            x3 = blackKeyOffsets[8] - 2;
             canvas.drawRect(x2, 0, x2 + x3 - x2, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         case 10: /* A# */
-            x1 = blackKeyOffsets[8]; 
+            x1 = blackKeyOffsets[8];
             x2 = blackKeyOffsets[9];
             canvas.drawRect(x1, 0, x1 + BlackKeyWidth, 0 + BlackKeyHeight, paint);
             if (color == gray1) {
                 paint.setColor(gray2);
-                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8, 
-                                x1+1 + BlackKeyWidth-2, 
-                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8, 
+                canvas.drawRect(x1+1, BlackKeyHeight - BlackKeyHeight/8,
+                                x1+1 + BlackKeyWidth-2,
+                                BlackKeyHeight - BlackKeyHeight/8 + BlackKeyHeight/8,
                                 paint);
             }
             break;
         case 11: /* B */
             x1 = WhiteKeyWidth * 6 + 2;
-            x2 = blackKeyOffsets[9] + 3; 
+            x2 = blackKeyOffsets[9] + 3;
             x3 = WhiteKeyWidth * KeysPerOctave - 1;
             canvas.drawRect(x2, 0, x2 + x3 - x2, 0 + BlackKeyHeight+3, paint);
-            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3, 
+            canvas.drawRect(x1, BlackKeyHeight+3, x1 + WhiteKeyWidth-3,
                             BlackKeyHeight+3 + bottomHalfHeight, paint);
             break;
         default:
@@ -550,7 +550,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
             else
                 right = i;
         }
-        while (left >= 1 && 
+        while (left >= 1 &&
                (notes.get(left-1).getStartTime() == notes.get(left).getStartTime())) {
             left--;
         }
@@ -628,7 +628,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
             int nextStartTrack = NextStartTimeSameTrack(i);
             end = Math.max(end, nextStartTrack);
             end = Math.min(end, start + maxShadeDuration-1);
-                
+
             /* If we've past the previous and current times, we're done. */
             if ((start > prevPulseTime) && (start > currentPulseTime)) {
                 break;
@@ -636,7 +636,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
 
             /* If shaded notes are the same, we're done */
             if ((start <= currentPulseTime) && (currentPulseTime < nextStart) &&
-                (currentPulseTime < end) && 
+                (currentPulseTime < end) &&
                 (start <= prevPulseTime) && (prevPulseTime < nextStart) &&
                 (prevPulseTime < end)) {
                 break;
@@ -675,7 +675,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
 
 
     /** TODO ?? */
-    public void 
+    public void
     surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         draw();
     }
@@ -684,7 +684,7 @@ public class Piano extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         surfaceReady = true;
         // setWillNotDraw(false);
-        draw();         
+        draw();
     }
 
     /** Surface has been destroyed */

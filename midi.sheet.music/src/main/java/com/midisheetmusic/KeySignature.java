@@ -69,7 +69,7 @@ public class KeySignature {
     private Accid[] keymap;
 
     /** The measure used in the previous call to GetAccidental() */
-    private int prevmeasure; 
+    private int prevmeasure;
 
 
     /** Create new key signature, with the given number of
@@ -106,9 +106,9 @@ public class KeySignature {
             case NoteScale.Gflat: num_flats = 6;  break;
             case NoteScale.G:     num_sharps = 1; break;
             case NoteScale.Aflat: num_flats = 4;  break;
-            default:              throw new IllegalArgumentException(); 
+            default:              throw new IllegalArgumentException();
         }
-        
+
         CreateAccidentalMaps();
         keymap = new Accid[160];
         ResetKeyMap();
@@ -118,7 +118,7 @@ public class KeySignature {
     /** Iniitalize the sharpkeys and flatkeys maps */
     private static void CreateAccidentalMaps() {
         if (sharpkeys != null)
-            return; 
+            return;
 
         Accid[] map;
         sharpkeys = new Accid[8][];
@@ -407,7 +407,7 @@ public class KeySignature {
             return bass;
     }
 
-    /** Given a midi note number, return the accidental (if any) 
+    /** Given a midi note number, return the accidental (if any)
      * that should be used when displaying the note in this key signature.
      *
      * The current measure is also required.  Once we return an
@@ -423,7 +423,7 @@ public class KeySignature {
         }
         if (notenumber <= 1 || notenumber >= 127) {
             return Accid.None;
-        } 
+        }
 
         Accid result = keymap[notenumber];
         if (result == Accid.Sharp) {
@@ -477,9 +477,9 @@ public class KeySignature {
         int octave = (notenumber + 3) / 12 - 1;
         int letter = 0;
 
-        int[] whole_sharps = { 
-            WhiteNote.A, WhiteNote.A, 
-            WhiteNote.B, 
+        int[] whole_sharps = {
+            WhiteNote.A, WhiteNote.A,
+            WhiteNote.B,
             WhiteNote.C, WhiteNote.C,
             WhiteNote.D, WhiteNote.D,
             WhiteNote.E,
@@ -488,7 +488,7 @@ public class KeySignature {
         };
 
         int[] whole_flats = {
-            WhiteNote.A, 
+            WhiteNote.A,
             WhiteNote.B, WhiteNote.B,
             WhiteNote.C,
             WhiteNote.D, WhiteNote.D,
@@ -516,7 +516,7 @@ public class KeySignature {
              * is a natural.
              */
             if (NoteScale.IsBlackKey(notescale)) {
-                if (keymap[notenumber-1] == Accid.Natural && 
+                if (keymap[notenumber-1] == Accid.Natural &&
                     keymap[notenumber+1] == Accid.Natural) {
 
                     if (num_flats > 0) {
@@ -623,7 +623,7 @@ public class KeySignature {
     public int Notescale() {
         int[] flatmajor = {
             NoteScale.C, NoteScale.F, NoteScale.Bflat, NoteScale.Eflat,
-            NoteScale.Aflat, NoteScale.Dflat, NoteScale.Gflat, NoteScale.B 
+            NoteScale.Aflat, NoteScale.Dflat, NoteScale.Gflat, NoteScale.B
         };
 
         int[] sharpmajor = {
@@ -633,7 +633,7 @@ public class KeySignature {
         };
         if (num_flats > 0)
             return flatmajor[num_flats];
-        else 
+        else
             return sharpmajor[num_sharps];
     }
 

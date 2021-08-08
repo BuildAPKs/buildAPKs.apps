@@ -104,7 +104,7 @@ class ColorView extends View {
             percent = 0;
         if (percent > 1)
             percent = 1;
- 
+
         percent = 1 - percent;
         int[] colors = new int[7];
         colors[0] = Color.rgb(255, (int)(255 * percent), (int)(255 * percent));
@@ -123,7 +123,7 @@ class ColorView extends View {
     private void initColorRings() {
         colorRings = new Paint[64];
         for (int i = 0; i < 64; i++) {
-            colorRings[i] = new Paint(Paint.ANTI_ALIAS_FLAG); 
+            colorRings[i] = new Paint(Paint.ANTI_ALIAS_FLAG);
             Shader s = new SweepGradient(0, 0, colorsForRing(i/64.0f), null);
             colorRings[i].setShader(s);
             colorRings[i].setStyle(Paint.Style.STROKE);
@@ -141,7 +141,7 @@ class ColorView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawRoundRect(new RectF(center/10, center/10, center/4, center/4), 5, 5, colorPreview);
- 
+
         canvas.translate(center, center);
 
         for (int i = 1; i < colorRings.length; i++) {
@@ -205,7 +205,7 @@ class ColorView extends View {
 
     /** When the user clicks on the color wheel, update
      *  the selected color, and the preview pane.
-     *  
+     *
      *  When they click outside the wheel, dismiss the dialog.
      */
     @Override
@@ -213,7 +213,7 @@ class ColorView extends View {
         float x = event.getX() - center;
         float y = event.getY() - center;
         float radius = (float)Math.sqrt(x*x + y*y);
-        
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
             case MotionEvent.ACTION_MOVE:
@@ -233,7 +233,7 @@ class ColorView extends View {
             case MotionEvent.ACTION_UP:
                 if (radius > circleRadius) {
                     listener.colorChanged(colorPreview.getColor());
-                }                        
+                }
                 break;
         }
         return true;
