@@ -75,4 +75,4 @@ _AT_ winterbe/android-moneysheet e00491ddebc0a096ec1b40a179778877d6ca2fe5
 _AT_ wrr/speech_trainer 4fdd845f0a7ec0e9c7aef6f1290ffaf8999878f2
 rm -rf wrr/speech_trainer/wrr-speech_trainer-4fdd845/app_tests/
 _AT_ yetanotherchris/chordboard 886601c5b3a0d0ebda762107c1070210da00403d
-# BuildAPKs/buildAPKs.apps ma.bash OEF
+# BuildAPKs/buildAPKs.apps/ma.bash OEF
