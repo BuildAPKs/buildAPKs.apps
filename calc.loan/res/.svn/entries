@@ -1,70 +1,0 @@
-10
-
-dir
-162
-http://android-simple-loan-calculator.googlecode.com/svn/branches/3.3/res
-http://android-simple-loan-calculator.googlecode.com/svn
-
-
-
-2012-02-23T12:25:58.029886Z
-120
-andrei.samkov
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-ad215699-5d60-9b94-db70-8f590cbb3547
-
-drawable-ldpi
-dir
-
-layout-large-port
-dir
-
-drawable-mdpi
-dir
-
-layout-xlarge-land
-dir
-
-layout
-dir
-
-layout-xlarge-port
-dir
-
-values
-dir
-
-layout-large-land
-dir
-
-drawable
-dir
-
-values-ru
-dir
-
-drawable-hdpi
-dir
-
-values-es
-dir
-
-menu
-dir
-
-values-et
-dir
-
