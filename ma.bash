@@ -10,6 +10,7 @@ cd "$JDR"
 _AT_ AndroidAalto/BookingRoom 93679e03736f68a2d9416d1d2c9f2e8ae6b71441
 _AT_ AndroidAalto/SoundFuse 972d566b10fa36613327b205dfad34f8c3ab02db
 _AT_ Arjun93/Bongos-Maestro 1ea65240bf6915c6bac5d60effab23e1b190f6e0
+rm -rf Arjun93/Bongos-Maestro/Arjun93-Bongos-Maestro-1ea6524/app/build/
 _AT_ Bubu/athg2sms bb644440e228b4edc14a76fd9963ed5fa6f6883b
 _AT_ abramhindle/AndroidTableEditor ea5d0405c3cb7d5e4aa8c7ba87a590829e33e97d
 _AT_ adriangl/metromadrid-android bfbb78970ecc1a44519af00fd984c96bdb20540c
@@ -17,6 +18,7 @@ _AT_ afairley/Tesla-Table 9b64cbb7687dde663690c2c2c7621d2175c9429a
 _AT_ agehua/achartengine 2a318ee8a4a9fa809d9ab11a3a22b73ad0f3d5e6
 _AT_ ahmed9dz/flashlight 04287aa86097049612c8d5168b99f85329914d4d
 _AT_ alexandraHospital/1024Histoires fa3682bada9841ad6bf9eb89f508941aa301a7e9
+rm -rf alexandraHospital/1024Histoires/app/build/
 _AT_ amsitlab/termuxlauncher b543e1d0e20cb36ce0c801ad3cbee0d27c055882
 _AT_ arsho/drumpad_android_application 9c5856caa334feab7b5c63fc904f9fcfacb2a224
 _AT_ andviane/moon d841e446e05e506ef546add78a6dacd635740ebc
