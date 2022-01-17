@@ -70,6 +70,7 @@ _AT_ termux/termux-failsafe 7f175afc1ec25baf77b1e2214c667abb947572a1
 _AT_ timb0/CrystalBall 139bcc424feb344d72e82219845a1974aa119b94
 _AT_ valerio-bozzolan/AcrylicPaint 03e3629979cd2de0f389f44e12f51700a6ceac0d
 _AT_ valerio-bozzolan/gilgamesh cb044b24171378ef3a28344d7371496419223be0
+_AT_ wertarbyte/ChordDroid 81b8f21f2542812b2b13828e484d11caa579f4df
 _AT_ winterbe/android-moneysheet e00491ddebc0a096ec1b40a179778877d6ca2fe5
 _AT_ wrr/speech_trainer 4fdd845f0a7ec0e9c7aef6f1290ffaf8999878f2
 rm -rf wrr/speech_trainer/wrr-speech_trainer-4fdd845/app_tests/
